@@ -31,17 +31,6 @@ set :rbenv_roles, :all # default value
 
 set :linked_files, %w(config/database.yml config/secrets.yml)
 
-## Defaults:
-# set :scm,           :git
-# set :branch,        :master
-# set :format,        :pretty
-# set :log_level,     :debug
-# set :keep_releases, 5
-
-## Linked Files & Directories (Default None):
-# set :linked_files, %w{config/database.yml}
-# set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
@@ -84,6 +73,7 @@ namespace :deploy do
   desc 'Upload YAML files.'
   task :upload_yml do
     on roles(:app) do
+      execute "export DEVISE_SECRET_KEY=#{ENV["DEVISE_SECRET_KEY"]}"
       execute "mkdir #{shared_path}/config -p"
       upload! StringIO.new(File.read("config/database.yml")), "#{shared_path}/config/database.yml"
       upload! StringIO.new(File.read("config/secrets.yml")), "#{shared_path}/config/secrets.yml"
