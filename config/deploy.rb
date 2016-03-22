@@ -24,6 +24,13 @@ set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
+set :rbenv_ruby, '2.2.4'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_roles, :all # default value
+
+set :linked_files, %w(config/database.yml config/secrets.yml)
+
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
@@ -74,7 +81,17 @@ namespace :deploy do
     end
   end
 
+  desc 'Upload YAML files.'
+  task :upload_yml do
+    on roles(:app) do
+      execute "mkdir #{shared_path}/config -p"
+      upload! StringIO.new(File.read("config/database.yml")), "#{shared_path}/config/database.yml"
+      upload! StringIO.new(File.read("config/secrets.yml")), "#{shared_path}/config/secrets.yml"
+    end
+  end
+
   before :starting,     :check_revision
+  before :deploy,       "deploy:upload_yml"
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart

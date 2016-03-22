@@ -13,6 +13,7 @@
 /tmp/*
 .DS_Store
 /config/database.yml
+/config/secrets.yml
 /vendor/bundle/
 /vendor/ruby/
 /config/config.yml
