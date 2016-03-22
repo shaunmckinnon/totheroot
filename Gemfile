@@ -14,10 +14,21 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Use Bootstrap-Sass, HAML, and FontAwesome
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'haml-rails', '~> 0.9'
+gem 'font-awesome-rails'
+
+# Use PaperClip for file handling
+gem "paperclip", "~> 4.3"
+
+# Authentication
+gem 'devise'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
