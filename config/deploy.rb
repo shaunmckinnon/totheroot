@@ -29,7 +29,7 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
 
-set :linked_files, %w(config/database.yml config/secrets.yml)
+set :linked_files, %w(config/database.yml config/secrets.yml config/initializers/devise.rb)
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
@@ -73,10 +73,10 @@ namespace :deploy do
   desc 'Upload YAML files.'
   task :upload_yml do
     on roles(:app) do
-      execute "export DEVISE_SECRET_KEY=#{ENV["DEVISE_SECRET_KEY"]}"
       execute "mkdir #{shared_path}/config -p"
       upload! StringIO.new(File.read("config/database.yml")), "#{shared_path}/config/database.yml"
       upload! StringIO.new(File.read("config/secrets.yml")), "#{shared_path}/config/secrets.yml"
+      upload! StringIO.new(File.read("config/initializers/devise.rb")), "#{shared_path}/config/initializers/devise.rb"
     end
   end
 
