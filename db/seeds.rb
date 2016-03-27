@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+ExtShop.create([
+  {
+    name: 'Etsy',
+    url: 'https://www.etsy.com/shop/ToTheRoot'
+  }
+])
+
+ExtShop.create([
+  ext_shop_id: 1,
+  product: nil
+])

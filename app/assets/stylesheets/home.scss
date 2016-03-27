@@ -1,0 +1,78 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+}
+
+.hero-unit {
+  background: #c3c3c3;
+  background-image: image-url('background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.home-hero-container {
+  margin: 0 auto;
+  max-width: 50%;
+  justify-content: center;
+  align-self: center;
+  
+  .title-logo-container {
+    display: flex;
+    justify-content: center;
+
+    .title {
+      h1 {
+        margin: 0;
+        color: #fff;
+        font-family: 'Parisienne', cursive;
+        font-size: 6em;
+
+        small {
+          color: #fff;
+          font-size: 0.59em;
+          display: block;
+        }
+      }
+    }
+
+    .logo {
+      width: 10em;
+      margin-left: 2em;
+    }
+  }
+
+  .home-search-bar {
+    float: none;
+    margin: 0 auto;
+    margin-top: 6em;
+    width: 75%;
+
+    input {
+      height: 75px;
+      font-size: 24px;
+      font-weight: bold;
+      border: none;
+      border-radius: 100px;
+      padding-left: 48px;
+    }
+
+    span > button {
+      height: 75px;
+      font-size: 24px;
+      font-weight: bold;
+      background: #e67e22;
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      padding: 0 24px;
+    }
+  }
+}

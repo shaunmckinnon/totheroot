@@ -11,10 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322144852) do
+ActiveRecord::Schema.define(version: 20160324031541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "etsy_deets", force: :cascade do |t|
+    t.string   "access_token"
+    t.string   "access_secret"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "ext_shop_products", force: :cascade do |t|
+    t.integer  "ext_shop_id"
+    t.json     "product"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "ext_shop_products", ["ext_shop_id"], name: "index_ext_shop_products_on_ext_shop_id", using: :btree
+
+  create_table "ext_shops", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,4 +57,5 @@ ActiveRecord::Schema.define(version: 20160322144852) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "ext_shop_products", "ext_shops"
 end

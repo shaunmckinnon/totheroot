@@ -43,6 +43,7 @@ gem 'puma'
 # App Specific Gems
 # Etsy
 gem 'etsy'
+gem 'http'
 
 # Pagination
 gem 'will_paginate', '~> 3.0.6'

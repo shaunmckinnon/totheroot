@@ -1,0 +1,17 @@
+%header.hero-unit
+  .home-hero-container
+    .title-logo-container
+      .title
+        %h1
+          To The Root
+          %small
+            Handmade Creations
+      
+      .logo
+        = image_tag "butterfly-logo.svg"
+
+    .home-search-bar.input-group
+      %input.form-control{ placeholder: "Which product are you looking for ..." }
+      %span.input-group-btn
+        %button.btn.btn-default{ type: "button" }
+          Go Get It!
