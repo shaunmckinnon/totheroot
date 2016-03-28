@@ -5,7 +5,7 @@ class HomeController < ApplicationController
       format.html
       format.json do
         @etsy_products = EtsyProduct.search(params[:term])
-        render json: @etsy_products.to_json
+        render json: @etsy_products.to_json, status: :ok, message: 'Success'
       end
     end
   end
