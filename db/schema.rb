@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324031541) do
+ActiveRecord::Schema.define(version: 20160327133027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,20 +23,27 @@ ActiveRecord::Schema.define(version: 20160324031541) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "ext_shop_products", force: :cascade do |t|
-    t.integer  "ext_shop_id"
-    t.json     "product"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "ext_shop_products", ["ext_shop_id"], name: "index_ext_shop_products_on_ext_shop_id", using: :btree
-
-  create_table "ext_shops", force: :cascade do |t|
-    t.string   "name"
+  create_table "etsy_products", force: :cascade do |t|
+    t.integer  "listing_id",           limit: 8
+    t.integer  "category_id",          limit: 8
+    t.string   "title"
+    t.string   "description"
+    t.string   "price"
+    t.string   "currency_code"
+    t.integer  "quantity"
+    t.json     "tags"
+    t.json     "category_path"
+    t.json     "taxonomy_path"
+    t.json     "materials"
+    t.integer  "featured_rank"
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "views"
+    t.integer  "num_favorers"
+    t.integer  "shipping_template_id", limit: 8
+    t.integer  "shipping_profile_id",  limit: 8
+    t.json     "images"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,5 +64,4 @@ ActiveRecord::Schema.define(version: 20160324031541) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "ext_shop_products", "ext_shops"
 end

@@ -11,7 +11,27 @@
         = image_tag "butterfly-logo.svg", alt: "The butterfly logo that represents To the Root's curious creativity, and attention to nature."
 
     .home-search-bar.input-group
-      %input.form-control{ placeholder: "Which product are you looking for ..." }
+      %input.form-control{ id: "etsy_products_search", placeholder: "Can I help you find something?", autofocus: true }
       %span.input-group-btn
         %button.btn.btn-default{ type: "button" }
           Go Get It!
+
+#product-preview.modal.fade{tabindex: "-1", role: "dialog"}
+  .modal-dialog
+    .modal-content
+      
+      .modal-header
+        %button.close{data: {dismiss: "modal"}, aria: {label: "Close"}}
+          %span{aria: {hidden: true}}
+            &times;
+        %h4.modal-title
+
+      .modal-body
+        %img#product-image.thumbnail
+        %p.description
+
+      .modal-footer
+        %button.btn.btn-warning{data: {dismiss: "modal"}}
+          Close
+        %button#buyItNow.btn.btn-success
+          Buy Now

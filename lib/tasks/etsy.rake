@@ -34,17 +34,38 @@ namespace :etsy do
 
     user = Etsy.user 'ToTheRoot'
     shop = user.shop.result
-    limit = 5
+    limit = 100
     inventory_count = shop["listing_active_count"]
 
     listings = []
     (0...((inventory_count.to_f / 100).ceil)).each do |os|
-      listings << Etsy::Listing.find_all_by_shop_id( user.shop.id, limit: limit, offset: (os * 100) )
+      listing_group = Etsy::Listing.find_all_by_shop_id( user.shop.id, limit: limit, offset: (os * 100) )
+      listing_group.each{ |listing| listings << listing }
     end
 
-    esp = ExtShopProduct.first
-    esp.update(product: listings)
-    esp.save
+    EtsyProduct.transaction do
+      listings.each do |listing|
+        product = EtsyProduct.find_or_initialize_by(listing_id: listing.result["listing_id"])
+        product.category_id = listing.result["listing_id"]
+        product.title = listing.result["title"]
+        product.description = listing.result["description"]
+        product.price = listing.result["price"]
+        product.currency_code = listing.result["currency_code"]
+        product.quantity = listing.result["quantity"]
+        product.tags = listing.result["tags"]
+        product.category_path = listing.result["category_path"]
+        product.taxonomy_path = listing.result["taxonomy_path"]
+        product.materials = listing.result["materials"]
+        product.featured_rank = listing.result["featured_rank"]
+        product.url = listing.result["url"]
+        product.views = listing.result["views"]
+        product.num_favorers = listing.result["num_favorers"]
+        product.shipping_template_id = listing.result["shipping_template_id"]
+        product.shipping_profile_id = listing.result["shipping_profile_id"]
+        product.images = listing.images.map{ |image| image.result["url_170x135"] }
+        product.save!
+      end
+    end
   end
 
   desc "Get changed listings"

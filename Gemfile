@@ -29,6 +29,8 @@ gem 'devise'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'jquery-turbolinks'
+# jQuery UI
+gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -44,6 +46,7 @@ gem 'puma'
 # Etsy
 gem 'etsy'
 gem 'http'
+gem 'simple_form'
 
 # Pagination
 gem 'will_paginate', '~> 3.0.6'

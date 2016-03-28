@@ -53,11 +53,10 @@ html, body {
     float: none;
     margin: 0 auto;
     margin-top: 6em;
-    width: 75%;
 
     input {
       height: 75px;
-      font-size: 24px;
+      font-size: 18px;
       font-weight: bold;
       border: none;
       border-radius: 100px;
@@ -66,7 +65,7 @@ html, body {
 
     span > button {
       height: 75px;
-      font-size: 24px;
+      font-size: 18px;
       font-weight: bold;
       background: #e67e22;
       color: #fff;
@@ -74,5 +73,48 @@ html, body {
       border-radius: 100px;
       padding: 0 24px;
     }
+  }
+}
+
+ul.ui-autocomplete {
+  background: #333;
+  background: rgba(0, 0, 0, .5);
+  border: none;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  max-height: 200px;
+  overflow: scroll;
+  overflow-x: hidden;
+
+  li.ui-menu-item {
+    list-style: none;
+    padding: 10px 20px;
+    color: #fff;
+  }
+
+  .ui-state-focus {
+    background: #c0392b;
+    border: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+#product-preview {
+  .modal-body {
+    #product-image {
+      max-width: 200px;
+      max-height: 200px;
+      margin-right: 1em;
+      float: left;
+    }
+  }
+  .modal-footer{
+    clear: both;
   }
 }
