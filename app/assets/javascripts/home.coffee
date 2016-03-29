@@ -23,3 +23,10 @@ $ ->
   
     $('#buyItNow').click () ->
       $(location).attr('href', product.attr('data-etsy-url'))
+
+  $.ajax(
+    url: '/'
+    dataType: 'JSON'
+    data: term: 'woven').done (data) ->
+      console.log data
+      return
