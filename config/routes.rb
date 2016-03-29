@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resource :etsy_product
 
+  match '*any' => 'application#options', :via => [:options]
+
 end

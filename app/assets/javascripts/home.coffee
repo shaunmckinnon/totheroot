@@ -19,12 +19,12 @@ $ ->
     getProductModal product
 
   $('#goGetIt').click () ->
-    console.log $('#etsy_products_search')
     href = $('#etsy_products_search').attr('data-url')
     if href
-      window.location.replace href
+      redirectIt href
 
   getProductModal = (obj) ->
+    console.log obj
     $('#product-preview').find('.modal-title').text obj.title
     $('#product-preview').find('.modal-body > p').text obj.description
     $('#product-preview').find('#product-image').attr 'src', obj.images[0]
@@ -32,5 +32,8 @@ $ ->
     $('#product-preview').modal()
 
     $('#buyItNow').click () ->
-      window.location.replace obj.url
+      redirectIt obj.url
     return
+
+  redirectIt = (url) ->
+    window.open url, '_blank'
