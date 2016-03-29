@@ -17,15 +17,12 @@ $ ->
   $(document).on 'click', '[data-toggle="tooltip"]', () ->
     product = $(this)
     getProductModal product
-  
-    $('#buyItNow').click () ->
-      $(location).attr('href', product.attr('data-etsy-url'))
 
   $('#goGetIt').click () ->
     console.log $('#etsy_products_search')
     href = $('#etsy_products_search').attr('data-url')
     if href
-      $(location).attr 'href', href
+      window.location.replace href
 
   getProductModal = (obj) ->
     $('#product-preview').find('.modal-title').text obj.title
@@ -33,4 +30,7 @@ $ ->
     $('#product-preview').find('#product-image').attr 'src', obj.images[0]
     $('#product-preview').find('#product-image').attr 'alt', (obj.title + ": " + obj.description)
     $('#product-preview').modal()
+
+    $('#buyItNow').click () ->
+      window.location.replace obj.url
     return
