@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   def index
     respond_to do |format|
-      @etsy_products = "woven"
+      @etsy_products = EtsyProduct.all
 
       format.json do
         File.open "test.json", "w" do |f|
