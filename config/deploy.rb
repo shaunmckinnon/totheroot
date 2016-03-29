@@ -28,7 +28,6 @@ set :rbenv_ruby, '2.2.4'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
-set :rails_env, "production"
 
 set :linked_files, %w(config/database.yml config/secrets.yml config/initializers/devise.rb)
 
@@ -81,6 +80,12 @@ namespace :deploy do
     end
   end
 
+  desc 'Provision env before assets:precompile'
+  task :fix_bug_env do
+    set :rails_env, (fetch(:rails_env) || fetch(:stage))
+  end
+  
+  before "deploy:assets:precompile", "deploy:fix_bug_env"
   before :starting,     :check_revision
   before :deploy,       "deploy:upload_yml"
   after  :finishing,    :compile_assets
