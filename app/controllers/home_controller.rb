@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   def index
     respond_to do |format|
-      @etsy_products = params[:term] ? EtsyProduct.search(params[:term]) : nil
+      @etsy_products = "woven"
 
       format.json do
         File.open "test.json", "w" do |f|
