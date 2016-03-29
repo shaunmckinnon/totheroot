@@ -1,3 +1,5 @@
+require 'etsy_product'
+
 class HomeController < ApplicationController
 
   def index
