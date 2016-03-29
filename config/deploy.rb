@@ -83,15 +83,15 @@ namespace :deploy do
 
   desc 'Provision env before assets:precompile'
   task :fix_bug_env do
-    set :rails_env, (fetch(:rails_env) || fetch(:stage))
+    execute "export RAILS_ENV=production"
   end
 
-  before "deploy:assets:precompile", "deploy:fix_bug_env"
   before :starting,     :check_revision
   before :deploy,       "deploy:upload_yml"
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
+  after  :finishing,    :fix_bug_env
 end
 
 # ps aux | grep puma    # Get puma pid
