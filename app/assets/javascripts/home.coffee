@@ -26,6 +26,7 @@ $ ->
 
   $.ajax(
     url: '/'
+    method: 'GET'
     dataType: 'JSON'
     data: term: 'woven').done (data) ->
       console.log data
