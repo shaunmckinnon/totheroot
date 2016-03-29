@@ -69,6 +69,8 @@ namespace :etsy do
         end
       end
     end
+
+    UserMailer.cron_task_complete
   end
 
   desc "Get changed listings"
