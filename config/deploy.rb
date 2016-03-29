@@ -68,6 +68,7 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       invoke 'puma:restart'
+      execute "export RAILS_ENV=production"
     end
   end
 
@@ -81,17 +82,11 @@ namespace :deploy do
     end
   end
 
-  desc 'Provision env before assets:precompile'
-  task :fix_bug_env do
-    execute "export RAILS_ENV=production"
-  end
-
   before :starting,     :check_revision
   before :deploy,       "deploy:upload_yml"
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
-  after  :finishing,    :fix_bug_env
 end
 
 # ps aux | grep puma    # Get puma pid
