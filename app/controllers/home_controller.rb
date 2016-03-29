@@ -1,3 +1,5 @@
+require 'json'
+
 class HomeController < ApplicationController
 
   def index
@@ -6,7 +8,7 @@ class HomeController < ApplicationController
         @etsy_products = EtsyProduct.search(params[:term])
         render json: @etsy_products, status: :ok, message: 'Success'
       end
-      
+
       format.html
     end
   end
