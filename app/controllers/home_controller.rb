@@ -5,6 +5,7 @@ class HomeController < ApplicationController
       format.json do
         @etsy_products = EtsyProduct.search(params[:term])
         File.open "test.json", "w" do |f|
+          f.puts params.to_json
           f.puts @etsy_products.to_json
         end
         render json: @etsy_products
