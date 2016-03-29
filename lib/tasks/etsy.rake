@@ -44,26 +44,29 @@ namespace :etsy do
     end
 
     EtsyProduct.transaction do
+      EtsyProduct.delete_all
       listings.each do |listing|
-        product = EtsyProduct.find_or_initialize_by(listing_id: listing.result["listing_id"])
-        product.category_id = listing.result["listing_id"]
-        product.title = listing.result["title"]
-        product.description = listing.result["description"]
-        product.price = listing.result["price"]
-        product.currency_code = listing.result["currency_code"]
-        product.quantity = listing.result["quantity"]
-        product.tags = listing.result["tags"]
-        product.category_path = listing.result["category_path"]
-        product.taxonomy_path = listing.result["taxonomy_path"]
-        product.materials = listing.result["materials"]
-        product.featured_rank = listing.result["featured_rank"]
-        product.url = listing.result["url"]
-        product.views = listing.result["views"]
-        product.num_favorers = listing.result["num_favorers"]
-        product.shipping_template_id = listing.result["shipping_template_id"]
-        product.shipping_profile_id = listing.result["shipping_profile_id"]
-        product.images = listing.images.map{ |image| image.result["url_170x135"] }
-        product.save!
+        unless listing.result["when_made"] == "made_to_order"
+          product = EtsyProduct.find_or_initialize_by(listing_id: listing.result["listing_id"])
+          product.category_id = listing.result["listing_id"]
+          product.title = listing.result["title"]
+          product.description = listing.result["description"]
+          product.price = listing.result["price"]
+          product.currency_code = listing.result["currency_code"]
+          product.quantity = listing.result["quantity"]
+          product.tags = listing.result["tags"]
+          product.category_path = listing.result["category_path"]
+          product.taxonomy_path = listing.result["taxonomy_path"]
+          product.materials = listing.result["materials"]
+          product.featured_rank = listing.result["featured_rank"]
+          product.url = listing.result["url"]
+          product.views = listing.result["views"]
+          product.num_favorers = listing.result["num_favorers"]
+          product.shipping_template_id = listing.result["shipping_template_id"]
+          product.shipping_profile_id = listing.result["shipping_profile_id"]
+          product.images = listing.images.map{ |image| image.result["url_170x135"] }
+          product.save!
+        end
       end
     end
   end
