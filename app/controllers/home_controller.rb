@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   def index
     respond_to do |format|
       format.json do
-        @etsy_products = EtsyProduct.where("title ILIKE ?", "%#{params[:term]}%")
+        @etsy_products = EtsyProduct.where("title ILIKE ?", "woven")
         File.open "test.json", "w" do |f|
           f.puts params.to_json
           f.puts @etsy_products.to_json
