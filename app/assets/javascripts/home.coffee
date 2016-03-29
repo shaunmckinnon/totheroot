@@ -37,3 +37,6 @@ $ ->
 
   redirectIt = (url) ->
     window.open url, '_blank'
+
+  $('#etsy_products_search').click () ->
+    $(this).val('')
