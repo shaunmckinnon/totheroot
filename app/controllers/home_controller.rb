@@ -4,13 +4,11 @@ class HomeController < ApplicationController
 
   def index
     respond_to do |format|
-      @etsy_products = EtsyProduct.search(params[:term])
+      format.html
 
       format.json do
-        render json: @etsy_products
+        render json: @etsy_products = EtsyProduct.search(params[:term])
       end
-
-      format.html
     end
   end
 

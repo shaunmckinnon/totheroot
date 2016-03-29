@@ -10,11 +10,8 @@
       .logo
         = image_tag "butterfly-logo.svg", alt: "The butterfly logo that represents To the Root's curious creativity, and attention to nature."
 
-    .home-search-bar.input-group
-      %input.form-control{ id: "etsy_products_search", placeholder: "Can I help you find something?", autofocus: true }
-      %span.input-group-btn
-        %button.btn.btn-default{ type: "button" }
-          Go Get It!
+    .home-search-bar
+      %input.form-control{ id: "etsy_products_search", placeholder: "Can I help you find something?", autofocus: true } 
 
 #product-preview.modal.fade{tabindex: "-1", role: "dialog"}
   .modal-dialog

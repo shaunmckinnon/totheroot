@@ -7,7 +7,7 @@ $ ->
       false
     select: (event, ui) ->
       $('#etsy_products_search').val ui.item.title
-      $('#etsy_products_search-description').html ui.item.description
+      getProductModal ui.item
       false
   ).autocomplete('instance')._renderItem = (ul, item) ->
     $('<li>')
@@ -16,18 +16,21 @@ $ ->
 
   $(document).on 'click', '[data-toggle="tooltip"]', () ->
     product = $(this)
-    $('#product-preview').find('.modal-title').text(product.text())
-    $('#product-preview').find('.modal-body > p').text(product.attr('title'))
-    $('#product-preview').find('#product-image').attr('src', product.attr('data-thumbnail'))
-    $('#product-preview').modal()
+    getProductModal product
   
     $('#buyItNow').click () ->
       $(location).attr('href', product.attr('data-etsy-url'))
 
-  $.ajax(
-    url: '/'
-    method: 'GET'
-    dataType: 'JSON'
-    data: term: 'woven').done (data) ->
-      console.log data
-      return
+  $('#goGetIt').click () ->
+    console.log $('#etsy_products_search')
+    href = $('#etsy_products_search').attr('data-url')
+    if href
+      $(location).attr 'href', href
+
+  getProductModal = (obj) ->
+    $('#product-preview').find('.modal-title').text obj.title
+    $('#product-preview').find('.modal-body > p').text obj.description
+    $('#product-preview').find('#product-image').attr 'src', obj.images[0]
+    $('#product-preview').find('#product-image').attr 'alt', (obj.title + ": " + obj.description)
+    $('#product-preview').modal()
+    return
