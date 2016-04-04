@@ -1,5 +1,9 @@
+$ttt-red: rgb(214, 59, 53);
+$ttt-green: rgb(224, 228, 81);
+$ttt-orange: rgb(238, 189, 91);
+$ttt-yellow: rgb(249, 240, 84);
+
 @import 'jquery-ui/core';
-@import 'jquery-ui/theme';
 @import 'jquery-ui/autocomplete';
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -7,7 +11,6 @@
 
 @import url(https://fonts.googleapis.com/css?family=Parisienne|Lato);
 
-@import "*";
 body {
   font-family: 'Lato', sans-serif;
 }

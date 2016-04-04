@@ -1,0 +1,19 @@
+#navbar-default
+  .nav-wrapper
+    .brand-nav
+      .logo
+        = image_tag "butterfly-logo.svg", alt: "The butterfly logo that represents To the Root's curious creativity, and attention to nature."
+      .heading
+        To the Root
+
+    .menu
+      %ul
+        %li.item
+          Products
+        %li.item
+          Support
+        %li.item
+          Register/Login
+        %li.item
+      
+      = render "helpers/autocompleteSearch"

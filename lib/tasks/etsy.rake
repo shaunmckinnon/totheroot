@@ -64,7 +64,7 @@ namespace :etsy do
           product.num_favorers = listing.result["num_favorers"]
           product.shipping_template_id = listing.result["shipping_template_id"]
           product.shipping_profile_id = listing.result["shipping_profile_id"]
-          product.images = listing.images.map{ |image| image.result["url_170x135"] }
+          product.images = listing.images.map{ |image| image.result["url_fullxfull"] }
           product.save!
         end
       end

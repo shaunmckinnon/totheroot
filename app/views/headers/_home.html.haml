@@ -1,34 +1,11 @@
-%header.hero-unit
-  .home-hero-container
-    .title-logo-container
-      .title
-        %h1
-          To The Root
-          %small
-            Handmade Creations
-      
-      .logo
-        = image_tag "butterfly-logo.svg", alt: "The butterfly logo that represents To the Root's curious creativity, and attention to nature."
+#header-home
+  #home-main
+    #home-nav
+      = render "navs/default"
 
-    .home-search-bar
-      %input.form-control{ id: "etsy_products_search", placeholder: "Can I help you find something?", autofocus: true } 
-
-#product-preview.modal.fade{tabindex: "-1", role: "dialog"}
-  .modal-dialog
-    .modal-content
-      
-      .modal-header
-        %button.close{data: {dismiss: "modal"}, aria: {label: "Close"}}
-          %span{aria: {hidden: true}}
-            &times;
-        %h4.modal-title
-
-      .modal-body
-        %img#product-image.thumbnail
-        %p.description
-
-      .modal-footer
-        %button.btn.btn-warning{data: {dismiss: "modal"}}
-          Close
-        %button#buyItNow.btn.btn-success
-          Buy Now
+    #shop-statement
+      %p
+        Sustainable, handmade products for conscious people.
+    
+    %button
+      See our products
