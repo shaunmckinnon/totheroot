@@ -17,7 +17,20 @@
 
       .logo {
         width: 50px;
+        height: 50px;
+        background-image: image-url('butterfly-logo-bw.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
         margin-right: 1.2em;
+        -webkit-transition: background-image 2s;
+        transition: background-image 2s;
+      }
+
+      .logo:hover {
+        background-image: image-url('butterfly-logo.svg');
+        -webkit-transition: background-image 2s;
+        transition: background-image 2s;
       }
 
       .heading {

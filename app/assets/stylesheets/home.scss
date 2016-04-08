@@ -12,55 +12,68 @@ html, body {
   height: 100%;
 }
 
+#home-nav {
+  position: fixed;
+  width: 100%;
+}
+
 #header-home {
   height: 100%;
-  width: 100%;
-  display: flex;
   background: image-url('linen-espresso-bg.jpg');
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-top: 60px;
   
-  #home-main {
-    height: 100%;
+  #home-branding {
     width: 100%;
+    height: 30%;
     display: flex;
-    align-content: center;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
 
-    #home-nav {
-      width: 100%;
+    #home-logo {
+      min-width: 300px;
+      height: 100%;
+      background-image: image-url('butterfly-logo.svg');
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
 
-    #shop-statement {
+    #home-wordmark {
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-      flex-direction: column;
-      flex-grow: 1;
 
-      p {
+      h1 {
+        line-height: 2em;
+        font-family: 'Parisienne', cursive;
         color: #fff;
-        font-size: 4em;
-        font-weight: bold;
-        padding-left: 1em;
+        font-size: 10em;
       }
     }
+  }
 
-    button {
-      align-self: center;
-      padding: 1em;
-      color: #fff;
-      font-size: 1.5em;
-      background: none;
-      border: 1px solid #fff;
-      border-radius: 5px;
-      margin-bottom: 2em;
-    }
+  #shop-statement {
+    height: 30%;
+    line-height: 4em;
+    color: #fff;
+    font-size: 4em;
+    font-weight: bold;
+  }
 
-    button:hover {
-      background: $ttt-red;
-    }
+  button {
+    padding: 1em;
+    color: #fff;
+    font-size: 1.5em;
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 5px;
+  }
+
+  button:hover {
+    background: $ttt-red;
   }
 }
