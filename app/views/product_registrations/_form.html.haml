@@ -1,0 +1,21 @@
+= simple_form_for(@product_registration) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :first_name
+    = f.input :last_name
+    = f.input :product_name
+    = f.input :product_number
+    = f.input :phone_number
+    = f.input :address_line_1
+    = f.input :address_line_2
+    = f.input :postal_code
+    = f.input :city
+    = f.input :province
+    = f.input :country
+    = f.input :email
+    = f.input :registration_number
+    = f.input :date_of_manufacture
+
+  .form-actions
+    = f.button :submit

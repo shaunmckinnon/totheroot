@@ -6,11 +6,6 @@
     .menu
       %ul
         %li.item
-          Products
-        %li.item
-          Support
-        %li.item
-          %i.fa.fa-shopping-cart
-        %li.item
+          =link_to 'Product Registration', new_product_registration_path
       
-      = render "helpers/autocompleteSearch"
+      / = render "helpers/autocompleteSearch"

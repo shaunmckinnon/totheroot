@@ -43,6 +43,7 @@ gem 'puma'
 gem 'etsy'
 gem 'http'
 gem 'simple_form'
+gem 'country_select'
 
 # Pagination
 gem 'will_paginate', '~> 3.0.6'

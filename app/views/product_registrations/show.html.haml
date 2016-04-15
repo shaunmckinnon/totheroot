@@ -1,0 +1,48 @@
+%p#notice= notice
+
+%p
+  %b First name:
+  = @product_registration.first_name
+%p
+  %b Last name:
+  = @product_registration.last_name
+%p
+  %b Product name:
+  = @product_registration.product_name
+%p
+  %b Product number:
+  = @product_registration.product_number
+%p
+  %b Phone number:
+  = @product_registration.phone_number
+%p
+  %b Address line 1:
+  = @product_registration.address_line_1
+%p
+  %b Address line 2:
+  = @product_registration.address_line_2
+%p
+  %b Postal code:
+  = @product_registration.postal_code
+%p
+  %b City:
+  = @product_registration.city
+%p
+  %b Province:
+  = @product_registration.province
+%p
+  %b Country:
+  = @product_registration.country
+%p
+  %b Email:
+  = @product_registration.email
+%p
+  %b Registration number:
+  = @product_registration.registration_number
+%p
+  %b Date of manufacture:
+  = @product_registration.date_of_manufacture
+
+= link_to 'Edit', edit_product_registration_path(@product_registration)
+\|
+= link_to 'Back', product_registrations_path

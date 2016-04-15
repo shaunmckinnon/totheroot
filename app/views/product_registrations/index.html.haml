@@ -1,0 +1,47 @@
+%h1 Listing product_registrations
+
+%table
+  %thead
+    %tr
+      %th First name
+      %th Last name
+      %th Product name
+      %th Product number
+      %th Phone number
+      %th Address line 1
+      %th Address line 2
+      %th Postal code
+      %th City
+      %th Province
+      %th Country
+      %th Email
+      %th Registration number
+      %th Date of manufacture
+      %th
+      %th
+      %th
+
+  %tbody
+    - @product_registrations.each do |product_registration|
+      %tr
+        %td= product_registration.first_name
+        %td= product_registration.last_name
+        %td= product_registration.product_name
+        %td= product_registration.product_number
+        %td= product_registration.phone_number
+        %td= product_registration.address_line_1
+        %td= product_registration.address_line_2
+        %td= product_registration.postal_code
+        %td= product_registration.city
+        %td= product_registration.province
+        %td= product_registration.country
+        %td= product_registration.email
+        %td= product_registration.registration_number
+        %td= product_registration.date_of_manufacture
+        %td= link_to 'Show', product_registration
+        %td= link_to 'Edit', edit_product_registration_path(product_registration)
+        %td= link_to 'Destroy', product_registration, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Product registration', new_product_registration_path
