@@ -80,22 +80,8 @@ namespace :etsy do
         end
       end
     end
-  end
 
-  desc "Get changed listings"
-  task :get_updated_listings => :environment do
-    Etsy.protocol = 'https'
-    Etsy.api_key = Rails.application.secrets.etsy_api_key
-    Etsy.api_secret = Rails.application.secrets.etsy_api_secret
-    token = EtsyDeet.first.access_token
-    secret = EtsyDeet.first.access_secret
-    
-    if token && secret
-      user = Etsy.myself(token, secret)
-      shop = user.shop
-      access = { :access_token => token, :access_secret => secret }
-      listings = Etsy::Listing.find_all_by_shop_id(user.shop.id, access.merge(:fields => ['listing_id', 'last_modified_tsz'], :limit => 100))      
-    end
+    UserMailer.cron_task_complete.deliver_now
   end
 
 end
