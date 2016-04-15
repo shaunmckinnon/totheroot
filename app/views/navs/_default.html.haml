@@ -1,11 +1,12 @@
 #navbar-default
   .nav-wrapper
     .brand-nav
-      =link_to '', root_path, class: 'logo', title: "The butterfly logo that represents To the Root's curious creativity, and attention to nature."
+      =link_to '', root_path, class: 'logo', title: "The butterfly logo that represents To the Root's curious creativity, and attention to nature. Click the little guy to quickly flit back to our home page."
 
     .menu
       %ul
         %li.item
-          =link_to 'Product Registration', new_product_registration_path
+          =link_to 'mailto:janel@totheroot.ca', title: 'Email Janel McKinnon at To the Root Support' do
+            %i.fa.fa-envelope
       
       / = render "helpers/autocompleteSearch"

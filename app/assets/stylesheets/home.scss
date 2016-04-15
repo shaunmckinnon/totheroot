@@ -1,11 +1,22 @@
 @import 'navs';
 @import 'products-featured';
 @import 'autocomplete-search';
+@import 'footer';
 
 $ttt-red: rgb(214, 59, 53);
 $ttt-green: rgb(224, 228, 81);
 $ttt-orange: rgb(238, 189, 91);
 $ttt-yellow: rgb(249, 240, 84);
+
+$full: 1920px;
+$med: 1280px;
+$sm: 1024px;
+$xsm: 768px;
+$tiny: 560px;
+
+::-webkit-scrollbar { 
+  display: none; 
+}
 
 html, body {
   width: 100%;
@@ -52,6 +63,22 @@ html, body {
         font-family: 'Parisienne', cursive;
         color: #fff;
         font-size: 10em;
+
+        @media screen and (max-width: $med) {
+          font-size: 8em;
+        }
+
+        @media screen and (max-width: $sm) {
+          font-size: 6em;
+        }
+
+        @media screen and (max-width: $xsm) {
+          font-size: 5em;
+        }
+
+        @media screen and (max-width: $tiny) {
+          font-size: 3em;
+        }
       }
     }
   }
@@ -62,9 +89,17 @@ html, body {
     color: #fff;
     font-size: 4em;
     font-weight: bold;
+
+    @media screen and (max-width: $med) {
+      font-size: 2em;
+    }
+
+    @media screen and (max-width: $xsm) {
+      font-size: 1.5em;
+    }
   }
 
-  button {
+  .btn.btn-default.cta {
     padding: 1em;
     color: #fff;
     font-size: 1.5em;
@@ -73,7 +108,14 @@ html, body {
     border-radius: 5px;
   }
 
-  button:hover {
+  .btn.btn-default.cta:hover {
     background: $ttt-red;
   }
+}
+
+#home-footer {
+  width: 100%;
+  height: 100%;
+  padding-top: 60px;
+  background-color: #333;
 }
