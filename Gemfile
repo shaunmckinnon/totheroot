@@ -45,6 +45,9 @@ gem 'http'
 gem 'simple_form'
 gem 'country_select'
 
+# Soft Deletes
+gem "paranoia", "~> 2.0"
+
 # Pagination
 gem 'will_paginate', '~> 3.0.6'
 

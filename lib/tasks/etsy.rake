@@ -37,14 +37,24 @@ namespace :etsy do
     limit = 100
     inventory_count = shop["listing_active_count"]
 
+    # get all the listings from Etsy
     listings = []
     (0...((inventory_count.to_f / 100).ceil)).each do |os|
       listing_group = Etsy::Listing.find_all_by_shop_id( user.shop.id, limit: limit, offset: (os * 100) )
       listing_group.each{ |listing| listings << listing }
     end
 
+    # compare and remove any old listings or nil listings
+    etsy_listing_ids = listings.map{ |l| l.result["listing_id"] }
+    sold_listings = EtsyProduct.where.not(listing_id: etsy_listing_ids)
     EtsyProduct.transaction do
-      EtsyProduct.delete_all
+      sold_listings.each do |listing|
+        listing.destroy
+      end
+    end
+
+    # Add and update all listings
+    EtsyProduct.transaction do
       listings.each do |listing|
         unless listing.result["when_made"] == "made_to_order"
           product = EtsyProduct.find_or_initialize_by(listing_id: listing.result["listing_id"])
@@ -65,12 +75,11 @@ namespace :etsy do
           product.shipping_template_id = listing.result["shipping_template_id"]
           product.shipping_profile_id = listing.result["shipping_profile_id"]
           product.images = listing.images.map{ |image| image.result["url_fullxfull"] }
+          product.registration_code = EtsyProduct.generate_registration_code if product.registration_code.blank?
           product.save!
         end
       end
     end
-
-    UserMailer.cron_task_complete
   end
 
   desc "Get changed listings"

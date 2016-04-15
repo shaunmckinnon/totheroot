@@ -11,5 +11,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    #home-nav
+      = render "navs/default"
+      
     .container
       = yield
