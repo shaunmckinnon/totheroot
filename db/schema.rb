@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415031001) do
+ActiveRecord::Schema.define(version: 20160503004217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "etsy_deets", force: :cascade do |t|
     t.string   "access_token"
@@ -50,6 +56,18 @@ ActiveRecord::Schema.define(version: 20160415031001) do
 
   add_index "etsy_products", ["deleted_at"], name: "index_etsy_products_on_deleted_at", using: :btree
 
+  create_table "posts", force: :cascade do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.string   "synopsis"
+    t.text     "content"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
+
   create_table "product_registrations", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -73,23 +91,25 @@ ActiveRecord::Schema.define(version: 20160415031001) do
   add_index "product_registrations", ["deleted_at"], name: "index_product_registrations_on_deleted_at", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.datetime "deleted_at"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["deleted_at"], name: "index_users_on_deleted_at", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "posts", "categories"
 end

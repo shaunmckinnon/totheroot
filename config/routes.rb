@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :posts
+  resources :categories
   resources :product_registrations
   get 'ProductRegistration', to: 'product_registrations#index'
 

@@ -8,5 +8,14 @@
         %li.item
           =link_to 'mailto:janel@totheroot.ca', title: 'Email Janel McKinnon at To the Root Support' do
             %i.fa.fa-envelope
-      
-      / = render "helpers/autocompleteSearch"
+        %li.item
+          =link_to 'http://blog.totheroot.ca/', title: 'To the Root blog by Janel McKinnon' do
+            %i.fa.fa-wordpress
+        -if user_signed_in?
+          %li.item
+            =link_to destroy_user_session_path, title: 'Logout of To the Root', method: :delete do
+              %i.fa.fa-sign-out
+        -else
+          %li.item
+            =link_to new_user_session_path, title: 'Sign or register a To The Root account.', id: 'sign-in-link' do
+              %i.fa.fa-sign-in
