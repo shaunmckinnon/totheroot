@@ -32,6 +32,17 @@ set :rbenv_roles, :all # default value
 
 set :linked_files, %w(config/database.yml config/secrets.yml config/initializers/devise.rb)
 
+set :lets_encrypt_roles, :lets_encrypt
+set :lets_encrypt_user, 'shaun'
+set :lets_encrypt_test, true
+set :lets_encrypt_email, 'shaun@totheroot.ca'
+set :lets_encrypt_account_key, "#{fetch(:lets_encrypt_email)}.account_key.pem"
+set :lets_encrypt_domains, 'totheroot.ca www.totheroot.ca'
+set :lets_encrypt_challenge_public_path, "#{release_path}/public"
+set :lets_encrypt_output_path, "#{shared_path}/ssl/certs"
+set :lets_encrypt_local_output_path, "~/certs"
+set :lets_encrypt_days_valid, 15
+
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
