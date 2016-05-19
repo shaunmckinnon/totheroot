@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
   resources :posts
   resources :categories
   resources :product_registrations
