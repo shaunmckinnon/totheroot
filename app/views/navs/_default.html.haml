@@ -7,12 +7,12 @@
       %ul
         %li.item
           =link_to 'mailto:janel@totheroot.ca', title: 'Email Janel McKinnon at To the Root Support' do
+            Contact Us&nbsp;
             %i.fa.fa-envelope
-              &nbsp;Contact Us
         %li.item
           =link_to 'http://blog.totheroot.ca/', title: 'To the Root blog by Janel McKinnon' do
+            Blog&nbsp;
             %i.fa.fa-wordpress
-              &nbsp;Blog
         / -if user_signed_in?
         /   %li.item
         /     =link_to destroy_user_session_path, title: 'Logout of To the Root', method: :delete do
