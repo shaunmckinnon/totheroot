@@ -11,8 +11,7 @@
 
   #shop-statement
     Sustainable, handmade products for conscious people.
-  
-  =link_to 'Visit Our Etsy Shop', 'https://www.etsy.com/ca/shop/ToTheRoot', class: 'btn btn-default cta'
+  =link_to 'Visit Our Etsy Shop', 'https://www.etsy.com/ca/shop/ToTheRoot', class: 'btn btn-default cta', onclick: "ga('send', 'event', 'Google Link', 'Action label', 'Action Value');"
 
 #home-footer
   = render 'footers/default'
