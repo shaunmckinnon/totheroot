@@ -2,6 +2,16 @@
   .nav-wrapper
     .brand-nav
       =link_to '', root_path, class: 'logo', title: "The butterfly logo that represents To the Root's curious creativity, and attention to nature. Click the little guy to quickly flit back to our home page."
+      %ul
+        %li.item
+          =link_to 'https://twitter.com/ToTheRoot', title: 'To the Root Twitter presence.', target: '_blank' do
+            %i.fa.fa-twitter
+        %li.item
+          =link_to 'https://www.facebook.com/2theRoot', title: 'To the Root Facebook presence.', target: '_blank' do
+            %i.fa.fa-facebook-square
+        %li.item
+          =link_to 'https://www.instagram.com/totheroothandmadecreations/', title: 'To the Root Instram presence.', target: '_blank' do
+            %i.fa.fa-instagram
 
     .menu
       %ul
@@ -13,8 +23,7 @@
           =link_to 'http://blog.totheroot.ca/', title: 'To the Root blog by Janel McKinnon' do
             Blog&nbsp;
             %i.fa.fa-wordpress
-        %li.item
-          =social_share_button_tag("To The Root")
+
         / -if user_signed_in?
         /   %li.item
         /     =link_to destroy_user_session_path, title: 'Logout of To the Root', method: :delete do

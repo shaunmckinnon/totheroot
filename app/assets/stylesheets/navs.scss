@@ -46,6 +46,31 @@ $ttt-yellow: rgb(249, 240, 84);
       }
     }
 
+    ul {
+      margin: 0;
+      padding: 0;
+      align-items: left;
+      align-content: left;
+
+      li {
+        display: inline;
+        list-style: none;
+        font-size: 2em;
+        margin: 0 0.6em;
+        height: 60px;
+        line-height: 60px;
+
+        a {
+          color: $ttt-red;
+        }
+
+        a:hover {
+          text-decoration: none;
+          color: $ttt-green;
+        }
+      }
+    }
+
     .menu {
       display: flex;
       align-items: center;
@@ -69,6 +94,11 @@ $ttt-yellow: rgb(249, 240, 84);
 
           a {
             color: $ttt-red;
+          }
+
+          a:hover {
+            text-decoration: none;
+            color: $ttt-green;
           }
         }
       }
