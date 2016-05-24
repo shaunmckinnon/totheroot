@@ -13,6 +13,8 @@
           =link_to 'http://blog.totheroot.ca/', title: 'To the Root blog by Janel McKinnon' do
             Blog&nbsp;
             %i.fa.fa-wordpress
+        %li.item
+          =social_share_button_tag("To The Root")
         / -if user_signed_in?
         /   %li.item
         /     =link_to destroy_user_session_path, title: 'Logout of To the Root', method: :delete do

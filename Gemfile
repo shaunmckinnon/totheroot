@@ -45,6 +45,9 @@ gem 'http'
 gem 'simple_form'
 gem 'country_select'
 
+# Social
+gem 'social-share-button'
+
 # Soft Deletes
 gem "paranoia", "~> 2.0"
 
