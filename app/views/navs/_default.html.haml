@@ -1,13 +1,8 @@
 %nav.navbar.navbar-default
   .container-fluid
     .navbar-header
-      %button.navbar-toggle.collapsed{ data: { toggle: "collapse", target: "navyboy" }, aria: { expanded: "false" }, type: "button" }
-        %span.sr-only Toggle Navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
       =link_to '', root_path, class: "navbar-brand", title: "The butterfly logo that represents To the Root's curious creativity, and attention to nature. Click the little guy to quickly flit back to our home page."
-    #navyboy.collapse.navbar-collapse
+    #navyboy
       %ul.nav.navbar-nav.navbar-right
         %li
           =link_to "https://twitter.com/ToTheRoot", title: "To the Root Twitter presence.", target: "_blank" do

@@ -20,12 +20,24 @@ $ttt-yellow: rgb(249, 240, 84);
     }
   }
 
+  #navyboy {
+    float: right;
+  }
+
   #navyboy > ul > li > a {
-    font-size: 2em;
+    font-size: 1.5em;
     color: $ttt-red;
   }
 
   #navyboy > ul > li:hover > a {
     color: $ttt-orange;
+  }
+
+  .navbar-header:before, .navbar-header:after {
+    content: none !important;
+  }
+
+  .navbar-nav > li {
+    float: left !important;
   }
 }
