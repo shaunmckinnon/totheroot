@@ -7,6 +7,7 @@ $ttt-red: rgb(214, 59, 53);
 $ttt-green: rgb(224, 228, 81);
 $ttt-orange: rgb(238, 189, 91);
 $ttt-yellow: rgb(249, 240, 84);
+$sm-break: 560px;
 
 ::-webkit-scrollbar { 
   display: none; 
@@ -75,6 +76,31 @@ html, body {
           background-color: transparent;
           color: #fff;
           border: 1px solid #fff;
+
+        }
+      }
+    }
+
+    @media (max-width: $sm-break) {
+      #home-branding {
+
+        #home-logo {
+          img {}
+        }
+
+        #home-wordmark {
+          h1 {
+            font-size: 4em;
+          }
+        }
+      }
+
+      #shop-statement {
+        #mission {
+          font-size: 1.5em;
+        }
+
+        #call-to-action {
 
         }
       }
