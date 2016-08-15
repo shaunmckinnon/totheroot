@@ -1,0 +1,121 @@
+@import 'navs';
+@import 'products-featured';
+@import 'autocomplete-search';
+@import 'footer';
+
+$ttt-red: rgb(214, 59, 53);
+$ttt-green: rgb(224, 228, 81);
+$ttt-orange: rgb(238, 189, 91);
+$ttt-yellow: rgb(249, 240, 84);
+
+$full: 1920px;
+$med: 1280px;
+$sm: 1024px;
+$xsm: 768px;
+$tiny: 560px;
+
+::-webkit-scrollbar { 
+  display: none; 
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+#home-nav {
+  position: fixed;
+  width: 100%;
+}
+
+#header-home {
+  height: 100%;
+  background: image-url('linen-espresso-bg.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-top: 60px;
+  
+  #home-branding {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #home-logo {
+      min-width: 300px;
+      height: 100%;
+      background-image: image-url('butterfly-logo.svg');
+      background-position: center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    #home-wordmark {
+      height: 100%;
+
+      h1 {
+        line-height: 2em;
+        font-family: 'Parisienne', cursive;
+        color: #fff;
+        font-size: 10em;
+
+        @media screen and (max-width: $med) {
+          font-size: 8em;
+        }
+
+        @media screen and (max-width: $sm) {
+          font-size: 6em;
+        }
+
+        @media screen and (max-width: $xsm) {
+          font-size: 5em;
+        }
+
+        @media screen and (max-width: $tiny) {
+          font-size: 3em;
+        }
+      }
+    }
+  }
+
+  #shop-statement {
+    height: 30%;
+    line-height: 4em;
+    color: #fff;
+    font-size: 4em;
+    font-weight: bold;
+
+    @media screen and (max-width: $med) {
+      font-size: 2em;
+    }
+
+    @media screen and (max-width: $xsm) {
+      font-size: 1.5em;
+    }
+  }
+
+  .btn.btn-default.cta {
+    padding: 1em;
+    color: #fff;
+    font-size: 1.5em;
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 5px;
+  }
+
+  .btn.btn-default.cta:hover {
+    background: $ttt-red;
+  }
+}
+
+#home-footer {
+  width: 100%;
+  height: 100%;
+  padding-top: 60px;
+  background-color: #333;
+}

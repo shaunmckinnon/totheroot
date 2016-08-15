@@ -1,28 +1,23 @@
 #home-nav
   = render "navs/default"
 
-#header-home     
-    
-  #home-branding
-    #home-logo{title: "To the Root's beautiful butterfly logo symbolizing their dedication to using natural organic fabrics."}
+#header-home 
+  
+  .tablecell
 
-    #home-wordmark
-      %h1 To The Root
+    #home-branding
+      #home-logo
+        =image_tag( "butterfly-logo.svg", alt: "To the Root's beautiful butterfly logo symbolizing their dedication to using natural organic fabrics." )
 
-  #shop-statement
-    Sustainable, handmade products for conscious people.
-  =link_to 'Visit Our Etsy Shop', 'https://www.etsy.com/ca/shop/ToTheRoot', class: 'btn btn-default cta', onclick: "ga('send', 'event', 'Google Link', 'Action label', 'Action Value');"
+      #home-wordmark
+        %h1 To The Root
+
+    #shop-statement
+      #mission
+        Sustainable, handmade products for conscious people.
+
+      #call-to-action
+        =link_to 'Visit Our Etsy Shop', 'https://www.etsy.com/ca/shop/ToTheRoot', class: 'btn btn-lg cta', onclick: "ga('send', 'event', 'Google Link', 'Action label', 'Action Value');"
 
 #home-footer
   = render 'footers/default'
-
-#sign-in.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog{:role => "document"}
-    .modal-content
-      .modal-header
-        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-          %span{"aria-hidden" => "true"} ×
-        %h4#myModalLabel.modal-title Your To The Root Login
-      .modal-body
-        = render 'devise/sessions/login'
-        = render "devise/shared/links"
