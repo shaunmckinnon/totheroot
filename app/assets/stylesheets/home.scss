@@ -46,6 +46,7 @@ html, body {
         img {
           height: 6em;
           width: 6em;
+          margin-top: -6em;
         }
       }
 
@@ -89,7 +90,9 @@ html, body {
       #home-branding {
 
         #home-logo {
-          img {}
+          img {
+            margin-top: 0;
+          }
         }
 
         #home-wordmark {
