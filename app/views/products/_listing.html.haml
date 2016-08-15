@@ -1,0 +1,16 @@
+.listing
+  .inside-container
+    .title
+      %h3
+        = locals[:product].title
+    
+    .image-thumb.img-circle.img-thumbnail{ style: "background-image: url(#{locals[:product].images.first});" }
+
+    .price
+      %span
+        = locals[:product].price
+
+    .url
+      %span.pull-right
+        = link_to 'Buy on Etsy', locals[:product].url
+    .clearfix

@@ -1,0 +1,48 @@
+$flat-ui-orange: #d35400;
+$listing-image-size: 8em;
+
+.shop-sections {
+  height: 100%;
+  width: 100%;
+
+  .inside-container {
+    min-height: 20em;
+    border-radius: 25px;
+    margin: 0;
+    margin-bottom: 1em;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    .title {
+      background-color: $flat-ui-orange;
+      border-top-right-radius: 25px;
+      border-top-left-radius: 25px;
+
+      h3 {
+        text-align: center;
+        text-transform: uppercase;
+        margin: 0;
+        color: #fff;
+        font-size: 1em;
+        padding: 1em .25em;
+        letter-spacing: .05em;
+      }
+    }
+
+    .section-link {
+      position: absolute;
+      bottom: 1em;
+      right: 1em;
+
+      a {
+        background-color: rgba(236, 240, 241,0.25);
+      }
+
+      a:hover {
+        background-color: rgba(253, 124, 20,1)
+      }
+    }
+  }
+}

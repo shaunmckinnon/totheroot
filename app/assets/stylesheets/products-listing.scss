@@ -1,0 +1,37 @@
+$flat-ui-orange: #d35400;
+$listing-image-size: 8em;
+
+.listing {
+
+  .inside-container {
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    outline: 1px solid blue;
+    border: 1px solid $ttt-orange;
+    text-align: center;
+
+    .title {
+      background-color: $flat-ui-orange;
+
+      h3 {
+        text-align: center;
+        text-transform: uppercase;
+        margin: 0;
+        color: #fff;
+        font-size: 1em;
+        padding: 1em .25em;
+        letter-spacing: .05em;
+      }
+    }
+
+    .image-thumb {
+      height: $listing-image-size;
+      width: $listing-image-size;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: inline-block;
+      margin: 1em;
+    }
+  }
+}

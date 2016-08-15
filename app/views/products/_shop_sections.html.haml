@@ -1,0 +1,13 @@
+.shop-sections
+  .inside-container{ style: "background-image: url(#{locals[:section].etsy_products.first.images.first});" }
+    .title
+      %h3
+        = locals[:section].title
+
+    .section-link
+      .url
+        = link_to "https://www.etsy.com/ca/shop/ToTheRoot?section_id=#{locals[:section].shop_section_id}", class: "btn btn-default", target: "_blank", title: "Link to #{locals[:section].title} on Etsy.com." do
+          %i.fa.fa-search
+          View on Etsy
+
+    .clearfix

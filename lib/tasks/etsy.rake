@@ -34,13 +34,36 @@ namespace :etsy do
 
     user = Etsy.user 'ToTheRoot'
     shop = user.shop.result
+    shop_sections = user.shop.sections
     limit = 100
     inventory_count = shop["listing_active_count"]
 
+    # get all the shop sections from Etsy
+    sections = shop_sections.map{ |section| section.result }
+
+    # compare and remove sections that no longer exist
+    shop_section_ids = sections.map{ |section| section["shop_section_id"] }
+    del_shop_sections = EtsyShopSection.where.not(shop_section_id: shop_section_ids)
+    EtsyShopSection.transaction do
+      del_shop_sections.each do |section|
+        section.destroy
+      end
+    end
+
+    # add the sections or update them
+    EtsyShopSection.transaction do
+      sections.each do |section|
+        shop_section = EtsyShopSection.find_or_initialize_by(shop_section_id: section["shop_section_id"])
+        shop_section.title = section["title"]
+        shop_section.rank = section["rank"]
+        shop_section.save!
+      end
+    end
+
     # get all the listings from Etsy
     listings = []
-    (0...((inventory_count.to_f / 100).ceil)).each do |os|
-      listing_group = Etsy::Listing.find_all_by_shop_id( user.shop.id, limit: limit, offset: (os * 100) )
+    (0...((inventory_count.to_f / limit).ceil)).each do |os|
+      listing_group = Etsy::Listing.find_all_by_shop_id( user.shop.id, limit: limit, offset: (os * limit) )
       listing_group.each{ |listing| listings << listing }
     end
 
@@ -59,6 +82,7 @@ namespace :etsy do
         unless listing.result["when_made"] == "made_to_order"
           product = EtsyProduct.find_or_initialize_by(listing_id: listing.result["listing_id"])
           product.category_id = listing.result["listing_id"]
+          product.shop_section_id = listing.result["shop_section_id"]
           product.title = listing.result["title"]
           product.description = listing.result["description"]
           product.price = listing.result["price"]

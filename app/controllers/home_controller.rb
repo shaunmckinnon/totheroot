@@ -17,7 +17,7 @@ class HomeController < ApplicationController
   end
 
   def index
-    @featured = EtsyProduct.featured
+    @shop_sections = EtsyShopSection.all
   end
 
 end

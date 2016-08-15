@@ -1,6 +1,7 @@
 class EtsyProduct < ActiveRecord::Base
 
   acts_as_paranoid
+  belongs_to :etsy_shop_section, class_name: 'EtsyShopSection',foreign_key: 'shop_section_id', primary_key: 'shop_section_id'
 
   def self.search(term)
     where("title ILIKE ?", "%#{term}%")

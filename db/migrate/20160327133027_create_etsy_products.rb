@@ -3,6 +3,7 @@ class CreateEtsyProducts < ActiveRecord::Migration
     create_table :etsy_products do |t|
       t.integer :listing_id, limit: 8
       t.integer :category_id, limit: 8
+      t.integer :shop_section_id, limit: 8
       t.string :title
       t.string :description
       t.string :price

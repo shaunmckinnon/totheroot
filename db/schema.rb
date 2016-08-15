@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503004217) do
+ActiveRecord::Schema.define(version: 20160815170241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,16 +22,10 @@ ActiveRecord::Schema.define(version: 20160503004217) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "etsy_deets", force: :cascade do |t|
-    t.string   "access_token"
-    t.string   "access_secret"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "etsy_products", force: :cascade do |t|
     t.integer  "listing_id",           limit: 8
     t.integer  "category_id",          limit: 8
+    t.integer  "shop_section_id",      limit: 8
     t.string   "title"
     t.string   "description"
     t.string   "price"
@@ -56,17 +50,13 @@ ActiveRecord::Schema.define(version: 20160503004217) do
 
   add_index "etsy_products", ["deleted_at"], name: "index_etsy_products_on_deleted_at", using: :btree
 
-  create_table "posts", force: :cascade do |t|
-    t.integer  "category_id"
-    t.string   "name"
-    t.string   "synopsis"
-    t.text     "content"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "etsy_shop_sections", force: :cascade do |t|
+    t.integer  "shop_section_id", limit: 8
+    t.string   "title"
+    t.integer  "rank",            limit: 8
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
-
-  add_index "posts", ["category_id"], name: "index_posts_on_category_id", using: :btree
 
   create_table "product_registrations", force: :cascade do |t|
     t.string   "first_name"
@@ -111,5 +101,4 @@ ActiveRecord::Schema.define(version: 20160503004217) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "posts", "categories"
 end
