@@ -6,8 +6,7 @@
 
     .section-link
       .url{ itemprop: "url" }
-        = link_to "https://www.etsy.com/ca/shop/ToTheRoot?section_id=#{locals[:section].shop_section_id}", class: "btn btn-default", target: "_blank", title: "Link to #{locals[:section].title} on Etsy.com.", rel: "nofollow", onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');" do
+        = link_to "/products/#{locals[:section].shop_section_id}", class: 'local-products' do
           %i.fa.fa-search
-          View on Etsy
 
     .clearfix

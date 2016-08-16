@@ -1,4 +1,4 @@
-$flat-ui-orange: #d35400;
+$title-bg: rgba(52, 73, 94,0.5);
 $listing-image-size: 8em;
 
 .shop-sections {
@@ -18,32 +18,36 @@ $listing-image-size: 8em;
     position: relative;
 
     .title {
-      background-color: $flat-ui-orange;
-      border-top-right-radius: 25px;
-      border-top-left-radius: 25px;
+      position: absolute;
+      width: 100%;
+      height: auto;
+      top: 35%;
+      margin: auto auto;
+
 
       h3 {
+        background-color: $title-bg;
         text-align: center;
         text-transform: uppercase;
         margin: 0;
         color: #fff;
-        font-size: 1em;
-        padding: 1em .25em;
+        font-size: 1.25em;
+        padding: 2em .25em;
         letter-spacing: .05em;
       }
     }
 
     .section-link {
       position: absolute;
-      bottom: 1em;
-      right: 1em;
+      top: 0;
+      left: 0;
+      border-top-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      background-color: rgb(230, 126, 34);
+      padding: 1em;
 
       a {
-        background-color: rgba(236, 240, 241,0.25);
-      }
-
-      a:hover {
-        background-color: rgba(253, 124, 20,1)
+        color: #fff;
       }
     }
   }

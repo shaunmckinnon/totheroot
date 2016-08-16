@@ -1,18 +1,40 @@
-$flat-ui-orange: #d35400;
+$product-title: rgba(108, 122, 137,1);
 $listing-image-size: 8em;
 
+#products {
+  height: 100%;
+  width: 100%;
+  margin-top: -1.5em;
+
+  h1 {
+    padding: 1em;
+    background-color: #333;
+    margin: 0;
+    color: #fff;
+  }
+}
+
 .listing {
+  padding: 1em;
+  width: 20em;
 
   .inside-container {
     border-radius: 5px;
     margin: 0;
     padding: 0;
-    outline: 1px solid blue;
-    border: 1px solid $ttt-orange;
     text-align: center;
+    position: relative;
+    height: 20em;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     .title {
-      background-color: $flat-ui-orange;
+      background-color: $product-title;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
 
       h3 {
         text-align: center;
@@ -25,13 +47,29 @@ $listing-image-size: 8em;
       }
     }
 
-    .image-thumb {
-      height: $listing-image-size;
-      width: $listing-image-size;
-      background-repeat: no-repeat;
-      background-size: cover;
-      display: inline-block;
-      margin: 1em;
+    .price {
+      background-color: $product-title;
+      color: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-top-left-radius: 5px;
+      border-bottom-right-radius: 25px;
+      padding: 1em;
+    }
+
+    .url {
+      background-color: rgb(230, 126, 34);
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 1em;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 25px;
+
+      a {
+        color: #fff;
+      }
     }
   }
 }

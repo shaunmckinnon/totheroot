@@ -26,7 +26,7 @@ namespace :etsy do
 
   end
 
-  desc "Get all listings (runs every few minutes and nukes and paves table with an updated list)"
+  desc "Get all listings (runs every few minutes)"
   task :get_all_listings => :environment do
     Etsy.protocol = 'https'
     Etsy.api_key = Rails.application.secrets.etsy_api_key

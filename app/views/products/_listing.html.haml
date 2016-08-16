@@ -1,16 +1,16 @@
-.listing
-  .inside-container
+.listing.col-xs-6.col-sm-4.col-md-3.col-leg-2
+  .inside-container{ style: "background-image: url(#{locals[:product].images.first});", itemprop: 'image' }
+
     .title
-      %h3
+      %h3{ itemprop: 'name' }
         = locals[:product].title
-    
-    .image-thumb.img-circle.img-thumbnail{ style: "background-image: url(#{locals[:product].images.first});" }
 
     .price
-      %span
-        = locals[:product].price
+      %span{ itemprop: 'price' }
+        = number_to_currency( locals[:product].price )
 
     .url
-      %span.pull-right
-        = link_to 'Buy on Etsy', locals[:product].url
+      =link_to '#', class: 'show-description', itemprop: 'url', title: locals[:product].title, data: { toggle: 'popover', content: "<p>#{link_to 'Buy on Etsy', locals[:product].url, class: 'btn btn-danger', target: "_blank", onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');"}</p><p>#{locals[:product].description}</p>", container: 'body', html: :true, trigger: 'focus' }, role: 'button', tabindex: '0' do
+        %i.fa.fa-search
+
     .clearfix

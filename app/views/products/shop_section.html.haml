@@ -1,0 +1,16 @@
+#home-nav{ itemscope: :true, itemtype: "http://schema.org/Product" }
+  = render "navs/default"
+
+#products
+  
+  %h1{ title: "Orillia handmade #{@shop_section.title.downcase}.", itemprop: 'category' }
+    = "Products - #{@shop_section.title.downcase}"
+  .bread-crumbs
+    %small
+      =link_to "/home", root_path
+      =link_to "/products/#{ @shop_section.title }"
+
+  .container
+    %section
+      - @shop_section.etsy_products.each do |product|
+        = render "products/listing", locals: { product: product }
