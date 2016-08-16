@@ -6,13 +6,15 @@ $listing-image-size: 8em;
   width: 100%;
 
   .inside-container {
-    min-height: 20em;
+    height: 20em;
+    width: 20em;
     border-radius: 25px;
-    margin: 0;
+    margin: 0 auto;
     margin-bottom: 1em;
     text-align: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center right;
     position: relative;
 
     .title {
