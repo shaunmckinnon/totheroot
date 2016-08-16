@@ -5,17 +5,17 @@
     #navyboy
       %ul.nav.navbar-nav.navbar-right
         %li
-          =link_to "https://twitter.com/ToTheRoot", title: "To the Root Twitter presence.", target: "_blank", onclick: "ga('send', 'event', {eventCategory: 'Twitter', eventAction: 'click', eventLabel: 'CTA Twitter'});" do
+          =link_to "https://twitter.com/ToTheRoot", title: "To the Root Twitter presence.", target: "_blank", onClick: "ga('send', 'event', 'Twitter', 'click', 'CTA Twitter');" do
             %i.fa.fa-twitter
         %li
-          =link_to "https://www.facebook.com/2theRoot", title: "To the Root Facebook presence.", target: "_blank", onclick: "ga('send', 'event', {eventCategory: 'Facebook', eventAction: 'click', eventLabel: 'CTA Facebook'});" do
+          =link_to "https://www.facebook.com/2theRoot", title: "To the Root Facebook presence.", target: "_blank", onClick: "ga('send', 'event', 'Facebook', 'click', 'CTA Facebook');" do
             %i.fa.fa-facebook-square
         %li
-          =link_to "https://www.instagram.com/totheroothandmadecreations/", title: "To the Root Instagram presence.", target: "_blank", onclick: "ga('send', 'event', {eventCategory: 'Instagram', eventAction: 'click', eventLabel: 'CTA Instagram'});" do
+          =link_to "https://www.instagram.com/totheroothandmadecreations/", title: "To the Root Instagram presence.", target: "_blank", onClick: "ga('send', 'event', 'Instagram', 'click', 'CTA Instagram');" do
             %i.fa.fa-instagram
         %li
-          =link_to "mailto:janel@totheroot.ca", title: "Email Janel McKinnon at To the Root Support", onclick: "ga('send', 'event', {eventCategory: 'Email-Direct-Contact', eventAction: 'click', eventLabel: 'CTA Email'});" do
+          =link_to "mailto:janel@totheroot.ca", title: "Email Janel McKinnon at To the Root Support", onClick: "ga('send', 'event', 'Email-Direct-Contact', 'click', 'CTA Email');" do
             %i.fa.fa-envelope
         %li
-          =link_to 'http://blog.totheroot.ca/', title: 'To the Root blog by Janel McKinnon', onclick: "ga('send', 'event', {eventCategory: 'Blog', eventAction: 'click', eventLabel: 'CTA Blog'});" do
+          =link_to 'http://blog.totheroot.ca/', title: 'To the Root blog by Janel McKinnon', onClick: "ga('send', 'event', 'Blog', 'click', 'CTA Blog');" do
             %i.fa.fa-rss
