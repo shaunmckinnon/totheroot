@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
   get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
+
   resources :posts
   resources :categories
+  
   resources :product_registrations
   get 'ProductRegistration', to: 'product_registrations#index'
 
@@ -14,5 +17,7 @@ Rails.application.routes.draw do
   resource :etsy_product
 
   match '*any' => 'application#options', :via => [:options]
+
+  get 'sitemap.xml', :to => 'sitemap#index', :defaults => {:format => 'xml'}
 
 end
