@@ -1,4 +1,4 @@
-SitemapController < ApplicationController
+class SitemapController < ApplicationController
   
   layout nil
 
