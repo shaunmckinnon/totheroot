@@ -3,12 +3,8 @@ upstream puma {
 }
 
 server {
-  listen 443 ssl;
-  server_name totheroo.ca;
-  ssl_certificate /home/shaun/totheroot.ca.crt;
-  ssl_certificate_key /home/shaun/totheroot.ca.key;
-  ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
-  ssl_ciphers         HIGH:!aNULL:!MD5;
+  listen 80 default_server deferred;
+  # server_name example.com;
 
   root /home/shaun/apps/totheroot-shop/current/public;
   access_log /home/shaun/apps/totheroot-shop/current/log/nginx.access.log;
