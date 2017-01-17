@@ -34,7 +34,11 @@ namespace :etsy do
 
     user = Etsy.user 'ToTheRoot'
     shop = user.shop.result
+    puts "Shop object: #{shop.inspect}"
+
     shop_sections = user.shop.sections
+    puts "Shop sections: #{shop_sections.inspect}"
+
     limit = 100
     inventory_count = shop["listing_active_count"]
 
@@ -45,6 +49,7 @@ namespace :etsy do
     shop_section_ids = sections.map{ |section| section["shop_section_id"] }
     del_shop_sections = EtsyShopSection.where.not(shop_section_id: shop_section_ids)
     EtsyShopSection.transaction do
+      puts "Removing shop sections."
       del_shop_sections.each do |section|
         section.destroy
       end
@@ -52,6 +57,7 @@ namespace :etsy do
 
     # add the sections or update them
     EtsyShopSection.transaction do
+      puts "Adding/updating shop sections."
       sections.each do |section|
         shop_section = EtsyShopSection.find_or_initialize_by(shop_section_id: section["shop_section_id"])
         shop_section.title = section["title"]
@@ -71,6 +77,7 @@ namespace :etsy do
     etsy_listing_ids = listings.map{ |l| l.result["listing_id"] }
     sold_listings = EtsyProduct.where.not(listing_id: etsy_listing_ids)
     EtsyProduct.transaction do
+      puts "Removing old listings."
       sold_listings.each do |listing|
         listing.destroy
       end
@@ -78,6 +85,7 @@ namespace :etsy do
 
     # Add and update all listings
     EtsyProduct.transaction do
+      puts "Adding/updating new listings."
       listings.each do |listing|
         unless listing.result["when_made"] == "made_to_order"
           product = EtsyProduct.find_or_initialize_by(listing_id: listing.result["listing_id"])
@@ -105,7 +113,7 @@ namespace :etsy do
       end
     end
 
-    UserMailer.cron_task_complete.deliver_now
+    # UserMailer.cron_task_complete.deliver_now
   end
 
 end

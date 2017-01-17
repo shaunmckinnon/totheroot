@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get '/autocomplete', to: 'product#autocomplete_search', format: :json
 
-  resource :etsy_product
+  resources :etsy_product
 
   match '*any' => 'application#options', :via => [:options]
 
