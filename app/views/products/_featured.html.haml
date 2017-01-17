@@ -1,7 +1,7 @@
 .featured-product
   .title
     %h3
-      = locals[:product].title
+      = raw locals[:product].title
   .image-thumb
     = image_tag locals[:product].images.first, class: "img-responsive", alt: locals[:product].description
   .price

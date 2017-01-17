@@ -34,10 +34,7 @@ namespace :etsy do
 
     user = Etsy.user 'ToTheRoot'
     shop = user.shop.result
-    puts "Shop object: #{shop.inspect}"
-
     shop_sections = user.shop.sections
-    puts "Shop sections: #{shop_sections.inspect}"
 
     limit = 100
     inventory_count = shop["listing_active_count"]

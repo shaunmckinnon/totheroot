@@ -3,14 +3,33 @@
 
     .title
       %h3{ itemprop: 'name' }
-        = locals[:product].title
+        = raw locals[:product].title
 
     .price
       %span{ itemprop: 'price' }
         = number_to_currency( locals[:product].price )
 
     .url
-      =link_to '#', class: 'show-description', itemprop: 'url', title: locals[:product].title, data: { toggle: 'popover', content: "<p>#{link_to 'Buy on Etsy', locals[:product].url, class: 'btn btn-danger', target: "_blank", onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');"}</p><p>#{locals[:product].description}</p>", container: 'body', html: :true, trigger: 'focus' }, role: 'button', tabindex: '0' do
+      =link_to '#', class: 'show-description', title: locals[:product].title, data: { toggle: 'modal', target: "#details-#{locals[:product].id}" }, role: 'button', tabindex: '0' do
         %i.fa.fa-search
 
     .clearfix
+
+.modal.fade{ role: "dialog", tabindex: "-1" , id: "details-#{locals[:product].id}" }
+  .modal-dialog{:role => "document"}
+    .modal-content
+
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4.modal-title= raw locals[:product].title
+
+      .modal-body
+        %p= raw locals[:product].description
+        .images
+          - locals[:product].images.each do |image|
+            = image_tag image, class: 'img-responsive img-thumbnail img-thumb'
+
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        = link_to 'Buy on Etsy', locals[:product].url, class: 'btn btn-danger', target: "_blank", onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');"

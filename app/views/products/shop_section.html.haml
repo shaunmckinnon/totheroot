@@ -4,7 +4,7 @@
 #products
   
   %h1{ title: "Orillia handmade #{@shop_section.title.downcase}.", itemprop: 'category' }
-    = "Products - #{@shop_section.title.downcase}"
+    = raw "Products - #{@shop_section.title.downcase}"
   .bread-crumbs
     %small
       =link_to "/home", root_path

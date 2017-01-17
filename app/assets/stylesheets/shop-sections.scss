@@ -1,54 +1,60 @@
 $title-bg: rgba(52, 73, 94,0.5);
 $listing-image-size: 8em;
+$ttt-red: rgb(214, 59, 53);
+$ttt-green: rgb(224, 228, 81);
+$ttt-orange: rgb(238, 189, 91);
+$ttt-yellow: rgb(249, 240, 84);
 
 .shop-sections {
   height: 100%;
   width: 100%;
+  
+  a {
+    .inside-container {
+      height: 20em;
+      width: 20em;
+      border-radius: 25px;
+      margin: 0 auto;
+      margin-bottom: 1em;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center right;
+      position: relative;
 
-  .inside-container {
-    height: 20em;
-    width: 20em;
-    border-radius: 25px;
-    margin: 0 auto;
-    margin-bottom: 1em;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center right;
-    position: relative;
-
-    .title {
-      position: absolute;
-      width: 100%;
-      height: auto;
-      top: 35%;
-      margin: auto auto;
+      .title {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 35%;
+        margin: auto auto;
 
 
-      h3 {
-        background-color: $title-bg;
-        text-align: center;
-        text-transform: uppercase;
-        margin: 0;
-        color: #fff;
-        font-size: 1.25em;
-        padding: 2em .25em;
-        letter-spacing: .05em;
+        h3 {
+          background-color: $title-bg;
+          text-align: center;
+          text-transform: uppercase;
+          margin: 0;
+          color: #fff;
+          font-size: 1.25em;
+          padding: 2em .25em;
+          letter-spacing: .05em;
+        }
       }
     }
 
-    .section-link {
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-top-left-radius: 25px;
-      border-bottom-right-radius: 25px;
-      background-color: rgb(230, 126, 34);
-      padding: 1em;
+    &:hover {
+      .inside-container {
 
-      a {
-        color: #fff;
+        .title {
+
+          h3 {
+            background-color: $ttt-red;
+            color: #fff;
+          }
+        }
       }
     }
   }
+
 }

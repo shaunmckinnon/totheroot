@@ -74,10 +74,17 @@ html, body {
         margin-top: 2em;
 
         a {
-          background-color: transparent;
           color: #fff;
           border: 1px solid #fff;
+          margin: 1em;
 
+          &.cta {
+            background-color: $ttt-orange;
+          }
+
+          &.cta-products {
+            background-color: $ttt-red;
+          }
         }
 
         a:hover {

@@ -17,4 +17,10 @@
         Sustainable, handmade products for conscious people.
 
       #call-to-action
-        =link_to 'Visit Our Etsy Shop', 'https://www.etsy.com/ca/shop/ToTheRoot', class: 'btn btn-lg cta', onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');"
+        =link_to '#listings-home', class: 'btn btn-lg cta-products', onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');" do
+          View Our Products&nbsp;
+          %i.fa.fa-chevron-down
+
+        =link_to 'https://www.etsy.com/ca/shop/ToTheRoot', class: 'btn btn-lg cta', onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');" do
+          Visit Our Etsy Shop&nbsp;
+          %i.fa.fa-chevron-right

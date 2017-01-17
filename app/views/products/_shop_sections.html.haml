@@ -1,12 +1,8 @@
 .shop-sections
-  .inside-container{ style: "background-image: url(#{locals[:section].etsy_products.first.images.first});", itemscope: :true, itemtype: "https://schema.org/category" }
-    .title
-      %h3{ itemprop: "name" }
-        = locals[:section].title
-
-    .section-link
-      .url{ itemprop: "url" }
-        = link_to "/products/#{locals[:section].shop_section_id}", class: 'local-products' do
-          %i.fa.fa-search
+  = link_to "/products/#{locals[:section].shop_section_id}", class: 'local-products' do
+    .inside-container{ style: "background-image: url(#{locals[:section].etsy_products.first.images.first});", itemscope: :true, itemtype: "https://schema.org/category" }
+      .title
+        %h3{ itemprop: "name" }
+          = raw locals[:section].title
 
     .clearfix
