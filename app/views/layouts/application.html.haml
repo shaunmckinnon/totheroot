@@ -3,12 +3,17 @@
   %head
     %meta{ name: "google-site-verification", content: "rAbYWDjUYdYwAYHAhnsH3PqAyeIRE_BP5iFlqXWlgaA" }
     %meta{ content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }
-    %meta{ name: "description", content: "We are a Canadian company from Orillia, Ontario who specializes in handmade apparel, created from many organic fabrics, for conscious families." }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    %meta{ name: 'description', content: yield_meta_tag( :description, '"We are a Canadian company from Orillia, Ontario who specializes in handmade apparel, created from many organic fabrics, for conscious families."' ) }
     %link{ rel: "icon", type: "image/png", href: "favicon-32x32.png", sizes: "32x32" }
     %link{ rel: "icon", type: "image/png", href: "favicon-16x16.png", sizes: "16x16" }
 
-    %title Orillia Handmade Creations by To The Root
+    %title
+      - if content_for?( :title )
+        = yield( :title ) + ' | To The Root Handmade Creations'
+      - else
+        Orillia Handmade Creations by To The Root
+      
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag params[:controller], media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true

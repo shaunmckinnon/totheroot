@@ -1,10 +1,12 @@
+- title @shop_section.title
+
 #home-nav
   = render "navs/default"
 
 #products{ itemscope: true, itemtype: 'http://schema.org/Product' }
   
-  %h1{ title: "Orillia handmade #{@shop_section.title.downcase}.", itemprop: 'name' }
-    = raw "Products - #{@shop_section.title.downcase}"
+  %h1{ title: "Orillia handmade #{ @shop_section.title }.", itemprop: 'name' }
+    = raw "Products - #{ @shop_section.title }"
   .bread-crumbs
     %small
       =link_to "/home", root_path
