@@ -1,20 +1,20 @@
 #home-nav
   = render "navs/default"
 
-#header-home 
+#header-home
   
   .tablecell
 
     #home-branding
       #home-logo
-        =image_tag( "butterfly-logo.svg", alt: "To the Root's beautiful butterfly logo symbolizing their dedication to using natural organic fabrics." )
+        =image_tag( "butterfly-logo.svg", alt: "To the Root's beautiful butterfly logo symbolizing their dedication to using natural organic fabrics.", itemprop: 'image' )
 
       #home-wordmark
         %h1 To The Root
 
     #shop-statement
-      #mission
-        Sustainable, handmade products for conscious people.
+      #mission{ itemprop: 'description' }
+        Sustainable, handmade products for conscious people.\
 
       #call-to-action
         =link_to '#listings-home', class: 'btn btn-lg cta-products', onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');" do

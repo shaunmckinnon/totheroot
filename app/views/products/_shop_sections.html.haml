@@ -1,8 +1,8 @@
-.shop-sections
+.shop-sections{ itemscope: true, itemtype: 'http://schema.org/Product' }
   = link_to "/products/#{locals[:section].shop_section_id}", class: 'local-products' do
-    .inside-container{ style: "background-image: url(#{locals[:section].etsy_products.first.images.first});", itemscope: :true, itemtype: "https://schema.org/category" }
+    .inside-container{ itemprop: 'image', style: "background-image: url(#{locals[:section].etsy_products.first.images.first});" }
       .title
-        %h3{ itemprop: "name" }
+        %h3{ itemprop: 'name' }
           = raw locals[:section].title
 
     .clearfix

@@ -1,15 +1,35 @@
 #footer-default
-  %footer
-    .sitemap
-      .menu
-        %ul
-          %li.item
-            =link_to 'mailto:janel@totheroot.ca', title: 'Email Janel McKinnon at To the Root Support' do
-              %i.fa.fa-envelope
-          %li.item
-            =link_to 'Product Registration', new_product_registration_path, title: 'Register your product for enhanced support and service with To the Root.'
+  .col-sm-6
+    %div{ itemscope: true, :itemtype => "http://schema.org/LocalBusiness" }
+      %span{ itemprop: 'logo' }
+        =image_tag( "butterfly-logo.svg", alt: "To the Root's beautiful butterfly logo symbolizing their dedication to using natural organic fabrics.", itemprop: 'image', class: 'logo' )
 
-            
-    .copyright
-      &copy;
-      = Date.today.year
+      .wordmark
+        %span{ itemprop: 'name' } To The Root
+    
+      %div{ itemprop: 'address', itemscope: true, itemtype: 'http://schema.org/PostalAddress' }
+        %span{ itemprop: 'streetAddress' } 59 Courtland St.
+        %br
+        %span{ itemprop: 'addressLocality' } Orillia
+        %span,&nbsp;
+        %span{ itemprop: 'addressRegion' } ON
+        %span &nbsp;
+        %span{ itemprop: 'postalCode' } L3V1A6
+        %br
+        %span{ itemprop: 'addressCountry' } Canada
+      
+      %div
+        %span{ itemprop: 'telephone' } 1(705)345-2959
+
+      %div
+        %span{ class: 'hideit', itemprop: 'priceRange' }$$
+
+  .col-sm-6
+    / &copy;
+    / = Date.today.year
+
+
+
+                
+
+        

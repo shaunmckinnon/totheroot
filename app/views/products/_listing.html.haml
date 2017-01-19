@@ -1,12 +1,12 @@
 .listing.col-xs-6.col-sm-4.col-md-3.col-leg-2
-  .inside-container{ style: "background-image: url(#{locals[:product].images.first});", itemprop: 'image' }
+  .inside-container{ style: "background-image: url(#{locals[:product].images.first});" }
 
     .title
-      %h3{ itemprop: 'name' }
+      %h3
         = raw locals[:product].title
 
     .price
-      %span{ itemprop: 'price' }
+      %span
         = number_to_currency( locals[:product].price )
 
     .url
@@ -15,21 +15,27 @@
 
     .clearfix
 
-.modal.fade{ role: "dialog", tabindex: "-1" , id: "details-#{locals[:product].id}" }
+.modal.fade{ role: "dialog", tabindex: "-1" , id: "details-#{locals[:product].id}", itemprop: 'offers', itemscope: true, itemtype: 'http://schema.org/Offer' }
   .modal-dialog{:role => "document"}
     .modal-content
 
       .modal-header
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} ×
-        %h4.modal-title= raw locals[:product].title
+        %h4.modal-title{ itemprop: 'name' }
+          = raw locals[:product].title
+          %span &nbsp;&mdash;&nbsp;
+          %span{ itemprop: 'price', content: locals[:product].price }
+            = number_to_currency( locals[:product].price )
+          %span{ itemprop: 'priceCurrency', content: 'CAD' }
 
       .modal-body
-        %p= raw locals[:product].description
+        %p{ itemprop: 'description' }
+          = raw locals[:product].description
         .images
           - locals[:product].images.each do |image|
-            = image_tag image, class: 'img-responsive img-thumbnail img-thumb'
+            = image_tag image, class: 'img-responsive img-thumbnail img-thumb', itemprop: 'image'
 
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-        = link_to 'Buy on Etsy', locals[:product].url, class: 'btn btn-danger', target: "_blank", onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');"
+        = link_to 'Buy on Etsy', locals[:product].url, class: 'btn btn-danger', target: "_blank", onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');", itemprop: 'availability'

@@ -1,9 +1,9 @@
-#home-nav{ itemscope: :true, itemtype: "http://schema.org/Product" }
+#home-nav
   = render "navs/default"
 
-#products
+#products{ itemscope: true, itemtype: 'http://schema.org/Product' }
   
-  %h1{ title: "Orillia handmade #{@shop_section.title.downcase}.", itemprop: 'category' }
+  %h1{ title: "Orillia handmade #{@shop_section.title.downcase}.", itemprop: 'name' }
     = raw "Products - #{@shop_section.title.downcase}"
   .bread-crumbs
     %small

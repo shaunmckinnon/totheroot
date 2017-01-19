@@ -2,9 +2,6 @@ Rails.application.routes.draw do
 
   get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
 
-  resources :posts
-  resources :categories
-  
   resources :product_registrations
   get 'ProductRegistration', to: 'product_registrations#index'
 
@@ -13,8 +10,6 @@ Rails.application.routes.draw do
   devise_for :users
   
   root 'home#index'
-
-  get '/autocomplete', to: 'product#autocomplete_search', format: :json
 
   resources :etsy_product
 
