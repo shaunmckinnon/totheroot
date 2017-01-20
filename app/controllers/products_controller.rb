@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def shop_section
-    @shop_section = EtsyShopSection.find_by( shop_section_id: params[:shop_section_id] )
+    @shop_section = EtsyShopSection.find_by( slug: params[:slug] )
   end
   
 end

@@ -1,5 +1,5 @@
 .shop-sections{ itemscope: true, itemtype: 'http://schema.org/Product' }
-  = link_to "/products/#{locals[:section].shop_section_id}", class: 'local-products' do
+  = link_to "/products/#{locals[:section].slug}", class: 'local-products' do
     .inside-container{ itemprop: 'image', style: "background-image: url(#{locals[:section].etsy_products.first.images.first});" }
       .title
         %h3{ itemprop: 'name' }

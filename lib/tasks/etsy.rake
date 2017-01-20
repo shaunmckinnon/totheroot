@@ -58,6 +58,7 @@ namespace :etsy do
       sections.each do |section|
         shop_section = EtsyShopSection.find_or_initialize_by(shop_section_id: section["shop_section_id"])
         shop_section.title = section["title"]
+        shop_section.slug = section['title'].parameterize.dasherize
         shop_section.rank = section["rank"]
         shop_section.save!
       end

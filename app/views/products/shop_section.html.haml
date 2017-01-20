@@ -11,7 +11,8 @@
   .bread-crumbs
     %small
       =link_to "/home", root_path
-      =link_to "/products/#{ @shop_section.title }"
+      =link_to "/products/", "#{root_path}#listings-home"
+      =link_to "#{ @shop_section.title }"
 
   .container
     %section
