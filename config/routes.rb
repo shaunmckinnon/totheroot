@@ -17,4 +17,8 @@ Rails.application.routes.draw do
 
   get 'sitemap.xml', :to => 'sitemap#index', :defaults => {:format => 'xml'}
 
+  get 'contact-us', to: 'pages#contact'
+  post 'contact-us', to: 'pages#contact_form_process'
+  get 'about-us', to: 'pages#about'
+
 end

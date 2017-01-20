@@ -1,0 +1,68 @@
+#home-nav
+  = render "navs/default"
+
+.container
+  %header
+    %h1.page-header
+      Contact Us
+      %small - Talk to the peeps
+
+  %div.col-sm-6
+    %h2 To The Root Handmade Creations
+    %p
+      %span
+        =link_to 'Email Janel', 'mailto: totheroot@hotmail.com'
+    %p
+      %span{ tel: '17053452959' }
+        1 (705) 345 - 2959
+
+    %p
+      %span 59 Courtland St.
+    %p
+      %span Orillia
+      ,&nbsp;
+      %span ON
+    %p
+      %span L3V 1A6
+    %p
+      %span Canada
+
+  %div.col-sm-6
+    %form{ method: :post, action: contact_us_path }
+
+      %fieldset
+        %legend
+          Your Information
+
+          .form-group
+            %label{ for: 'full_name' }
+              Your name:
+            %input.form-control{ type: 'text', name: 'full_name', placeholder: 'Janel McKinnon', required: 'required' }
+
+          .form-group
+            %label{ for: 'email' }
+              Your email address:
+            %input.form-control{ type: 'text', name: 'email', placeholder: 'janel.mckinnon@mydomain.ca', required: 'required' }
+
+          .form-group
+            %label{ for: 'phone_number' }
+              Your phone number:
+            %input.form-control{ type: 'text', name: 'phone_number', placeholder: '1(705)555-5555' }
+
+      %fieldset
+        %legend
+          Your Inquiry
+          
+          .form-group
+            %label{ for: 'product' }
+              Do you want to talk product?:
+            %input.form-control{ type: 'text', name: 'product', placeholder: 'Product your inquiry may be about. (This is optional. We\'re not presumptuous).' }
+
+          .form-group
+            %label{ for: 'inquiry' }
+              Your inquriy:
+            %textarea.form-control{ type: 'text', name: 'inquiry', placeholder: 'What would you like to know? How can we help? Or perhaps you just want to say "Hey"! Well you have a glorious 500 characters to express this in.', required: 'required', row: 5, max: 500 }
+
+
+      %div
+        %button.btn.btn-danger Shout Out!
