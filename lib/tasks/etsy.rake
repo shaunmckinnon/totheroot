@@ -40,7 +40,7 @@ namespace :etsy do
     inventory_count = shop["listing_active_count"]
 
     # get all the shop sections from Etsy
-    sections = shop_sections.map{ |section| section.result }
+    sections = shop_sections.map{ |section| sleep 1; section.result }
 
     # compare and remove sections that no longer exist
     shop_section_ids = sections.map{ |section| section["shop_section_id"] }
@@ -68,7 +68,7 @@ namespace :etsy do
     listings = []
     (0...((inventory_count.to_f / limit).ceil)).each do |os|
       listing_group = Etsy::Listing.find_all_by_shop_id( user.shop.id, limit: limit, offset: (os * limit) )
-      listing_group.each{ |listing| listings << listing }
+      listing_group.each{ |listing| sleep 1; listings << listing }
     end
 
     # compare and remove any old listings or nil listings
