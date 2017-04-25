@@ -1,3 +1,14 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+window.initMap = ->
+  uluru = 
+    lat: 44.59919
+    lng: -79.3613953
+
+  map = new (google.maps.Map)(document.getElementById('google-map'),
+    zoom: 17
+    center: uluru)
+
+  marker = new (google.maps.Marker)(
+    position: uluru
+    map: map)
+
+  return

@@ -1,0 +1,27 @@
+#contact-us {
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .contact-map {
+    position:  relative;
+    padding-bottom: 30%;
+    height: 0;
+    overflow: hidden;
+
+    #google-map {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  form {
+    label {
+      font-size: 0.75em;
+    }
+  }
+}

@@ -4,10 +4,8 @@
       =link_to '', root_path, class: "navbar-brand", title: "The butterfly logo that represents To the Root's curious creativity, and attention to nature. Click the little guy to quickly flit back to our home page."
     #navyboy
       %ul.nav.navbar-nav.navbar-right
-        / %li
-        /   =link_to 'About Us', about_us_path
-        / %li
-        /   =link_to 'Contact Us', contact_us_path
+        %li
+          / =link_to 'About Us', about_us_path
         %li
           =link_to "https://twitter.com/ToTheRoot", title: "To the Root Twitter presence.", target: "_blank", onClick: "ga('send', 'event', 'Twitter', 'click', 'CTA Twitter');" do
             %i.fa.fa-twitter
@@ -18,7 +16,7 @@
           =link_to "https://www.instagram.com/totheroothandmadecreations/", title: "To the Root Instagram presence.", target: "_blank", onClick: "ga('send', 'event', 'Instagram', 'click', 'CTA Instagram');" do
             %i.fa.fa-instagram
         %li
-          =link_to "mailto:janel@totheroot.ca", title: "Email Janel McKinnon at To the Root Support", onClick: "ga('send', 'event', 'Email-Direct-Contact', 'click', 'CTA Email');" do
+          =link_to contact_us_path, title: "Contact To the Root Handmade Creations", onClick: "ga('send', 'event', 'Contact-Us', 'click', 'CTA Contact');" do
             %i.fa.fa-envelope
         %li
           =link_to 'http://blog.totheroot.ca/', title: 'To the Root blog by Janel McKinnon', onClick: "ga('send', 'event', 'Blog', 'click', 'CTA Blog');" do
