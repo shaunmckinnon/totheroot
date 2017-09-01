@@ -29,6 +29,11 @@
       ga('create', 'UA-78241425-1', 'auto');
       ga('send', 'pageview');
 
+    -if flash[:notice]
+      %p.alert.alert-info= flash[:notice]
+    -if flash[:alert]
+      %p.alert.alert-danger= flash[:alert]
+
     = yield
     
     %script{ src: "//maps.google.com/maps/api/js?key=#{Rails.application.secrets.google_api_key}&callback=initMap", async: true, defer: true }
