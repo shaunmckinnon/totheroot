@@ -86,7 +86,7 @@ Rails.application.configure do
     :port                 => 587,
     :user_name            => Rails.application.secrets.gmail_login,
     :password             => Rails.application.secrets.gmail_password,
-    :authentication       => "plain",
-  :enable_starttls_auto => true
+    :authentication       => :login,
+    :enable_starttls_auto => true
   }
 end
