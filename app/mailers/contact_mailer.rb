@@ -1,7 +1,9 @@
 class ContactMailer < ApplicationMailer
+  default from: Rails.application.secrets.gmail_login
 
-  def contact message
-    mail(to: Rails.application.secrets.gmail_login, subject: 'To the Root - Contact Form', message: message)
+  def contact details
+    puts "Calling ContactMailer"
+    puts details.inspect
+    mail(to: Rails.application.secrets.gmail_login, subject: "Testing this shit")
   end
-
 end

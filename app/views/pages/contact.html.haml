@@ -43,45 +43,45 @@
   .col-xs-12
     %hr
 
-  / .col-xs-12
-  /   %form{ method: :post, action: contact_us_path }
-  /     = hidden_field_tag :authenticity_token, form_authenticity_token
+  .col-xs-12
+    %form{ method: :post, action: contact_us_path }
+      = hidden_field_tag :authenticity_token, form_authenticity_token
       
-  /     .col-sm-6
-  /       %fieldset
-  /         %legend
-  /           Your Information
+      .col-sm-6
+        %fieldset
+          %legend
+            Your Information
 
-  /           .form-group
-  /             %label{ for: 'full_name' }
-  /               Your name:
-  /             %input.form-control{ type: 'text', name: 'full_name', placeholder: 'Janel McKinnon', required: 'required' }
+            .form-group
+              %label{ for: 'full_name' }
+                Your name:
+              %input.form-control{ type: 'text', name: 'full_name', placeholder: 'Janel McKinnon', required: 'required' }
 
-  /           .form-group
-  /             %label{ for: 'email' }
-  /               Your email address:
-  /             %input.form-control{ type: 'text', name: 'email', placeholder: 'janel.mckinnon@mydomain.ca', required: 'required' }
+            .form-group
+              %label{ for: 'email' }
+                Your email address:
+              %input.form-control{ type: 'text', name: 'email', placeholder: 'janel.mckinnon@mydomain.ca', required: 'required' }
 
-  /           .form-group
-  /             %label{ for: 'phone_number' }
-  /               Your phone number:
-  /             %input.form-control{ type: 'text', name: 'phone_number', placeholder: '1(705)555-5555' }
+            .form-group
+              %label{ for: 'phone_number' }
+                Your phone number:
+              %input.form-control{ type: 'text', name: 'phone_number', placeholder: '1(705)555-5555' }
       
-  /     .col-sm-6
-  /       %fieldset
-  /         %legend
-  /           Your Inquiry
+      .col-sm-6
+        %fieldset
+          %legend
+            Your Inquiry
             
-  /           .form-group
-  /             %label{ for: 'product' }
-  /               Do you want to talk product?:
-  /             %input.form-control{ type: 'text', name: 'product', placeholder: 'Product your inquiry may be about. (This is optional. We\'re not presumptuous).' }
+            .form-group
+              %label{ for: 'product' }
+                Do you want to talk product?:
+              %input.form-control{ type: 'text', name: 'product', placeholder: 'Product your inquiry may be about. (This is optional. We\'re not presumptuous).' }
 
-  /           .form-group
-  /             %label{ for: 'inquiry' }
-  /               Your inquiry:
-  /             %textarea.form-control{ type: 'text', name: 'inquiry', placeholder: 'What would you like to know? How can we help? Or perhaps you just want to say "Hey"! Well you have a glorious 500 characters to express this in.', required: 'required', rows: 5, max: 500 }
+            .form-group
+              %label{ for: 'inquiry' }
+                Your inquiry:
+              %textarea.form-control{ type: 'text', name: 'inquiry', placeholder: 'What would you like to know? How can we help? Or perhaps you just want to say "Hey"! Well you have a glorious 500 characters to express this in.', required: 'required', rows: 5, max: 500 }
 
 
-  /       %div
-  /         %button.btn.btn-danger Shout Out!
+        %div
+          %button.btn.btn-danger Shout Out!
