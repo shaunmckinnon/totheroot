@@ -79,14 +79,20 @@ Rails.application.configure do
 
 
   # Mailer
+  config.action_mailer.default_url_options = { host: "totheroot.ca" }
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
+    :domain               => "totheroot.ca",
     :user_name            => Rails.application.secrets.gmail_login,
     :password             => Rails.application.secrets.gmail_password,
-    :authentication       => :login,
+    :authentication       => :plain,
     :enable_starttls_auto => true
   }
 end

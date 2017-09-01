@@ -4,8 +4,10 @@ class PagesController < ApplicationController
   end
 
   def contact_form_process
-    ContactMailer.contact params
+    puts "We ARE contacting!!!"
+    ContactMailer.contact(params).deliver_now
 
+    puts "We are redirecting"
     redirect_to contact_us_path, notice: 'Your message was sent. Thank you for contacting To The Root.'
   end
 
