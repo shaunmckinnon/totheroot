@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'contact-us', to: 'pages#contact'
   post 'contact-us', to: 'pages#contact_form_process'
   get 'about-us', to: 'pages#about'
+  get 'faq', to: 'pages#faq'
 
   resources :shop_sections
 

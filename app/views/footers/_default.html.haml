@@ -25,8 +25,22 @@
         %span{ class: 'hideit', itemprop: 'priceRange' }$$
 
   .col-sm-6
-    / &copy;
-    / = Date.today.year
+    #social-container.pull-right
+      %ul#social-items
+        %li.social-item
+          =link_to "https://twitter.com/ToTheRoot", title: "To the Root Twitter presence.", target: "_blank", onClick: "ga('send', 'event', 'Twitter', 'click', 'CTA Twitter');" do
+            %i.fa.fa-twitter
+        %li.social-item
+          =link_to "https://www.facebook.com/2theRoot", title: "To the Root Facebook presence.", target: "_blank", onClick: "ga('send', 'event', 'Facebook', 'click', 'CTA Facebook');" do
+            %i.fa.fa-facebook-square
+        %li.social-item
+          =link_to "https://www.instagram.com/totheroothandmadecreations/", title: "To the Root Instagram presence.", target: "_blank", onClick: "ga('send', 'event', 'Instagram', 'click', 'CTA Instagram');" do
+            %i.fa.fa-instagram
+  
+  .col-sm-12.copy-right
+    To the Root Handmade Creations
+    &copy;
+    = Date.today.year
 
 
 

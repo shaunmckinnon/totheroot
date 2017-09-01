@@ -1,3 +1,8 @@
+$ttt-red: rgb(214, 59, 53);
+$ttt-green: rgb(224, 228, 81);
+$ttt-orange: rgb(238, 189, 91);
+$ttt-yellow: rgb(249, 240, 84);
+
 #footer-default {
   background-color: #333;
   width: 100%;
@@ -24,5 +29,29 @@
   }
 
   margin-top: 2em;
+
+  #social-container {
+    #social-items {
+      list-style: none;
+
+      .social-item {
+        display: inline-block;
+        font-size: 4em;
+        margin: 0.5em;
+        margin-top: 0.75em;
+
+        a {
+          color: $ttt-green;
+          &:hover {
+            color: $ttt-orange;
+          }
+        }
+      }
+    }
+  }
+
+  .copy-right {
+    text-align: center;
+  }
 
 }
