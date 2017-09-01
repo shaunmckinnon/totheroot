@@ -3,7 +3,7 @@ class ContactMailer < ActionMailer::Base
 
   def contact params
     @params = params
-    mail to: Rails.application.secrets.gmail_login, subject: "Just a test"
+    mail to: "#{Rails.application.secrets.gmail_login}, janel@totheroot.ca", subject: "Contact Page Inquiry"
   end
 
 end
