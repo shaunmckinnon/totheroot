@@ -3,6 +3,9 @@
     .inside-container{ itemprop: 'image', style: "background-image: url(#{locals[:section].etsy_products.first.images.first});" }
       .title
         %h3{ itemprop: 'name' }
-          = raw locals[:section].title
+          - if locals[:section].shop_sections.count == 0
+            = raw locals[:section].title
+          - else
+            = raw locals[:section].shop_sections.first.name
 
     .clearfix

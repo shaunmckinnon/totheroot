@@ -1,0 +1,12 @@
+#home-nav
+  = render "navs/default"
+
+.container
+
+  %h1 Editing Shop Section
+
+  = render 'form'
+
+  = link_to 'Show', @shop_section
+  \|
+  = link_to 'Back', shop_sections_path

@@ -1,0 +1,18 @@
+#home-nav
+  = render "navs/default"
+
+.container
+  
+  %p
+    %b Associated Section:
+    = @shop_section.etsy_shop_section.title
+  %p
+    %b Name:
+    = @shop_section.name
+  %p
+    %b Description:
+    = @shop_section.description
+
+  = link_to 'Edit', edit_shop_section_path(@shop_section)
+  \|
+  = link_to 'Back', shop_sections_path

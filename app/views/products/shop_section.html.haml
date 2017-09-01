@@ -1,5 +1,9 @@
-- title @shop_section.title
-- meta_tag "description", "Current #{@shop_section.title} available at To the Root Handmade Creations."
+- if @shop_section.shop_sections.count > 0
+  - title @shop_section.shop_sections.first.name
+  - meta_tag "description", @shop_section.shop_sections.first.description
+- else
+  - title @shop_section.title
+  - meta_tag "description", "Current #{@shop_section.title} available at To the Root Handmade Creations."
 
 #home-nav
   = render "navs/default"
@@ -7,8 +11,12 @@
 #products{ itemscope: true, itemtype: 'http://schema.org/Product' }
   
   %h1{ title: "Orillia handmade #{ @shop_section.title }.", itemprop: 'name' }
-    = raw "Products - #{ @shop_section.title }"
-    
+    Products &nbsp;&mdash;&nbsp;
+    - if @shop_section.shop_sections.count == 0
+      = raw @shop_section.title
+    - else
+      = raw @shop_section.shop_sections.first.name
+      
   .bread-crumbs
     %small
       =link_to "/home", root_path

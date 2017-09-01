@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
 
-  get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
+  # Authenticated routes
+  devise_for :users
 
   resources :product_registrations
   get 'ProductRegistration', to: 'product_registrations#index'
 
   get '/products/:slug', to: 'products#shop_section'
 
-  devise_for :users
-  
   root 'home#index'
 
   resources :etsy_product
@@ -20,5 +19,7 @@ Rails.application.routes.draw do
   get 'contact-us', to: 'pages#contact'
   post 'contact-us', to: 'pages#contact_form_process'
   get 'about-us', to: 'pages#about'
+
+  resources :shop_sections
 
 end

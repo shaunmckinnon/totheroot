@@ -18,6 +18,20 @@
         %li
           =link_to contact_us_path, title: "Contact To the Root Handmade Creations", onClick: "ga('send', 'event', 'Contact-Us', 'click', 'CTA Contact');" do
             %i.fa.fa-envelope
+            &nbsp;
+            Contact Us
         %li
           =link_to 'http://blog.totheroot.ca/', title: 'To the Root blog by Janel McKinnon', onClick: "ga('send', 'event', 'Blog', 'click', 'CTA Blog');" do
-            %i.fa.fa-rss
+            %i.fa.fa-book
+            &nbsp;
+            Blog
+    
+    -if user_signed_in? && current_user.email == Rails.application.secrets.gmail_login
+      #adminnav
+        %ul.nav.navbar-nav
+          %li
+            =link_to destroy_user_session_path, method: :delete do
+              %i.fa.fa-unlock
+          %li
+            =link_to shop_sections_path do
+              Shop Sections

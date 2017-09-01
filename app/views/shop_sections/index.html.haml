@@ -1,0 +1,30 @@
+#home-nav
+  = render "navs/default"
+
+.container
+  %h1 Available Shop Sections
+
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th Description
+        %th
+        %th
+        %th
+
+    %tbody
+      - @shop_sections.each do |shop_section|
+        %tr
+          %td= shop_section.name
+          %td= shop_section.description
+          %td= link_to 'Show', shop_section
+          %td= link_to 'Edit', edit_shop_section_path(shop_section)
+          %td= link_to 'Destroy', shop_section, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to new_shop_section_path do
+    %i.fa.fa-plus
+    &nbsp;
+    New Shop Section
