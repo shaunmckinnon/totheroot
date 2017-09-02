@@ -1,0 +1,32 @@
+#home-nav
+  = render "navs/default"
+
+.container
+
+  %h1 Listing News Events
+
+  %table.table
+    %thead
+      %tr
+        %th Heading
+        %th Synopsis
+        %th Tags
+        %th Publish date
+        %th
+        %th
+        %th
+
+    %tbody
+      - @news_events.each do |news_event|
+        %tr
+          %td= news_event.heading
+          %td= news_event.synopsis
+          %td= news_event.tags
+          %td= news_event.publish_date
+          %td= link_to 'Show', news_event
+          %td= link_to 'Edit', edit_news_event_path(news_event)
+          %td= link_to 'Destroy', news_event, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  %br
+
+  = link_to 'New News event', new_news_event_path

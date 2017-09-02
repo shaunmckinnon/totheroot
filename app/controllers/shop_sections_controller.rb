@@ -2,15 +2,6 @@ class ShopSectionsController < ApplicationController
   before_action :admin_check
   before_action :set_shop_section, only: [:show, :edit, :update, :destroy]
 
-  # admin check
-  def admin_check
-    authenticate_user!
-
-    if current_user.email != Rails.application.secrets.gmail_login
-      redirect_to "/"
-    end
-  end
-
   # GET /shop_sections
   # GET /shop_sections.json
   def index

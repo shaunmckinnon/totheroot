@@ -12,7 +12,8 @@ $ttt-yellow: rgb(249, 240, 84);
   a {
     .inside-container {
       height: 20em;
-      width: 20em;
+      width: 100%;
+      max-width: 20em;
       border-radius: 25px;
       margin: 0 auto;
       margin-bottom: 1em;

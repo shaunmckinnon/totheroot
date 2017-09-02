@@ -1,0 +1,11 @@
+= simple_form_for(@news_event) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :heading
+    = f.input :synopsis, as: :text, input_html: { rows: 10 }
+    = f.input :article, as: :summernote, input_html: { rows: 40, cols: 120 }
+    = f.input :publish_date
+
+  .form-actions
+    = f.button :submit

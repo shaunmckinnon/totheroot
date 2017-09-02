@@ -1,0 +1,21 @@
+#home-nav
+  = render "navs/default"
+
+.container
+
+  %p
+    %b Heading:
+    = raw @news_event.heading
+  %p
+    %b Synopsis:
+    = raw @news_event.synopsis
+  %p
+    %b Article:
+    = raw @news_event.article
+  %p
+    %b Publish date:
+    = raw @news_event.publish_date
+
+  = link_to 'Edit', edit_news_event_path(@news_event)
+  \|
+  = link_to 'Back', news_events_path

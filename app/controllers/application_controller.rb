@@ -7,6 +7,15 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # admin check
+  def admin_check
+    authenticate_user!
+
+    if current_user.email != Rails.application.secrets.gmail_login
+      redirect_to "/"
+    end
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:account_update) << :name

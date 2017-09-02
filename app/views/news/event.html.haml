@@ -1,0 +1,18 @@
+#home-nav
+  = render "navs/default"
+
+.container
+  #news-event
+    %article
+      %header
+        .publish_date
+          = @event.publish_date.strftime("%A %B %d, %Y")
+
+        %h1
+          = @event.heading
+
+      %section
+        = raw @event.article
+
+  %nav
+    = link_to "Back to The News List", news_path

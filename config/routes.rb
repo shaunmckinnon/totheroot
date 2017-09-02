@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   get 'about-us', to: 'pages#about'
   get 'faq', to: 'pages#faq'
 
+  get 'news', to: 'news#list'
+
   resources :shop_sections
+  resources :news_events
+  get 'news/:id', to: 'news#event'
 
 end

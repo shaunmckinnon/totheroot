@@ -1,0 +1,23 @@
+#home-nav
+  = render "navs/default"
+
+.container
+  #news-list
+    %header
+      %h1
+        News for To the Root Handmade Creations
+
+    %section#news-list
+      - if @news.count > 0
+        - @news.each do |event|
+          .news-event
+            .news-heading
+              %h2
+                = event.heading
+            .news-date
+              = event.publish_date
+            .news-synopsis
+              %p
+                = event.synopsis
+            .link-to-event
+              = link_to "Read more...", "news/#{event.id}"

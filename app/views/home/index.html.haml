@@ -8,18 +8,44 @@
     "Canadian handmade products for you and your family."
 
   - count = 0 # keep track of which column we're on
-  - @shop_sections.each do | section |
-    - count += 1
-    .col-xs-12.col-sm-6.col-md-4.col-lg-3
-      = render "products/shop_sections", locals: { section: section }
-      
-    - # With the four tiers of grids available you're bound to run into issues where, at certain breakpoints, your columns don't clear quite right as one is taller than the other. To fix that, use a combination of a .clearfix and our responsive utility classes.
-    - # http://getbootstrap.com/css/#grid-responsive-resets
-    - if count % 2 == 0
-      .clearfix.visible-xs-block
+  -if @news.count > 0
+    .col-xs-12.col-lg-8
+      - @shop_sections.each do | section |
+        - count += 1
+        .col-xs-12.col-sm-6.col-md-4
+          = render "products/shop_sections", locals: { section: section }
+          
+        - # With the four tiers of grids available you're bound to run into issues where, at certain breakpoints, your columns don't clear quite right as one is taller than the other. To fix that, use a combination of a .clearfix and our responsive utility classes.
+        - # http://getbootstrap.com/css/#grid-responsive-resets
+        - if count % 2 == 0
+          .clearfix.visible-xs-block
 
-    - if count % 3 == 0
-      .clearfix.visible-md-block
+        - if count % 3 == 0
+          .clearfix.visible-md-block
 
-    - if count % 4 == 0
-      .clearfix.visible-lg-block
+  -else
+    .col-xs-12
+      - @shop_sections.each do | section |
+        - count += 1
+        .col-xs-12.col-md-6.col-lg-4
+          = render "products/shop_sections", locals: { section: section }
+          
+        - # With the four tiers of grids available you're bound to run into issues where, at certain breakpoints, your columns don't clear quite right as one is taller than the other. To fix that, use a combination of a .clearfix and our responsive utility classes.
+        - # http://getbootstrap.com/css/#grid-responsive-resets
+        - if count % 2 == 0
+          .clearfix.visible-md-block
+
+        - if count % 3 == 0
+          .clearfix.visible-lg-block
+
+
+  .col-xs-12.col-lg-4
+    #news-section
+      %header
+        %h2
+          %i.fa.fa-newspaper-o
+          &nbsp;
+          The Handmade News
+
+      #news-list
+        = render "news/archived"

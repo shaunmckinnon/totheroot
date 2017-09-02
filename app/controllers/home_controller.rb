@@ -18,6 +18,7 @@ class HomeController < ApplicationController
 
   def index
     @shop_sections = EtsyShopSection.all
+    @news = NewsEvent.first(10)
   end
 
 end

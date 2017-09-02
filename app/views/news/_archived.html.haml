@@ -1,0 +1,10 @@
+- @news.each do |event|
+  .event
+    .date
+      = event.publish_date.strftime("%A %B %d, %Y")
+    %header
+      %h3= event.heading
+    .synopsis
+      = event.synopsis
+    .link-to-event
+      = link_to "Read more...", "news/#{event.id}"

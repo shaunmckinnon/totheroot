@@ -138,6 +138,45 @@ html, body {
 }
 
 
+#news-section {
+  overflow: auto;
+  height: 100%;
+  max-height: 40em;
+
+  header {
+    h2 {
+      border-top-right-radius: 1em;
+      border-top-left-radius: 1em;
+      padding: 1em;
+      margin-bottom: 0;
+    }
+  }
+
+  #news-list {
+    .event {
+      margin-bottom: 2em;
+
+      .date{
+        background-color: $ttt-red;
+        color: #fff;
+        padding: 0.5em 1em;
+      }
+
+      %header {
+        %h3 {}
+      }
+
+      .synopsis {
+
+      }
+
+      .link-to-event {
+        a {}
+      }
+    }
+  }
+}
+
 
 
 
