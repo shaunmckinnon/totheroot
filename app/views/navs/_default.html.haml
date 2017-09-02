@@ -5,7 +5,10 @@
     #navyboy
       %ul.nav.navbar-nav.navbar-right
         %li
-          =link_to 'F.A.Q', faq_path
+          =link_to faq_path, title: "Our frequently asked quesions section." do
+            %i.fa.fa-question-circle
+            &nbsp;
+            F.A.Q
         %li
           =link_to contact_us_path, title: "Contact To the Root Handmade Creations", onClick: "ga('send', 'event', 'Contact-Us', 'click', 'CTA Contact');" do
             %i.fa.fa-envelope
