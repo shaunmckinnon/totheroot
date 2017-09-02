@@ -38,14 +38,14 @@
         - if count % 3 == 0
           .clearfix.visible-lg-block
 
+  -if @news.count > 0
+    .col-xs-12.col-lg-4
+      #news-section
+        %header
+          %h2
+            %i.fa.fa-newspaper-o
+            &nbsp;
+            The Handmade News
 
-  .col-xs-12.col-lg-4
-    #news-section
-      %header
-        %h2
-          %i.fa.fa-newspaper-o
-          &nbsp;
-          The Handmade News
-
-      #news-list
-        = render "news/archived"
+        #news-list
+          = render "news/archived"
