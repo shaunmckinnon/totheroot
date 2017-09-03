@@ -41,9 +41,10 @@ $ttt-yellow: rgb(249, 240, 84);
         margin-top: 0.75em;
 
         a {
-          color: $ttt-green;
+          color: #fff;
+
           &:hover {
-            color: $ttt-orange;
+            color: $ttt-green;
           }
         }
       }
