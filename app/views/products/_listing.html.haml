@@ -28,13 +28,14 @@
           %span{ itemprop: 'price', content: locals[:product].price }
             = number_to_currency( locals[:product].price )
           %span{ itemprop: 'priceCurrency', content: 'CAD' }
+        = social_share_button_tag locals[:product].title
 
       .modal-body
         %p{ itemprop: 'description' }
           = raw locals[:product].description
         .images
           - locals[:product].images.each do |image|
-            = image_tag image, class: 'img-responsive img-thumbnail img-thumb', itemprop: 'image'
+            = image_tag image["url_570xN"], class: 'img-responsive img-thumbnail img-thumb', itemprop: 'image'
 
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close

@@ -7,6 +7,7 @@
       %header
         .publish_date
           = @event.publish_date.strftime("%A %B %d, %Y")
+          = social_share_button_tag @event.heading
 
         %h1
           = @event.heading
