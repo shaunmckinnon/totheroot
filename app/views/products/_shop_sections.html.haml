@@ -1,6 +1,8 @@
 .shop-sections{ itemscope: true, itemtype: 'http://schema.org/Product' }
   = link_to "/products/#{locals[:section].slug}", class: 'local-products', title: locals[:section].shop_sections.count > 0 ? locals[:section].shop_sections.first.description : "Products available" do
-    .inside-container{ itemprop: 'image', style: "background-image: url(#{locals[:section].etsy_products.first.images.first});" }
+
+    .inside-container{ itemprop: 'image', style: "background-image: url(#{locals[:section].etsy_products.first.images.first["url_570xN"]});" }
+
       .title
         %h3{ itemprop: 'name' }
           - if locals[:section].shop_sections.count == 0
