@@ -7,6 +7,47 @@
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 <url>
-  <loc>http://totheroot.ca/</loc>
+  <loc>https://totheroot.ca/</loc>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://totheroot.ca/faq</loc>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://totheroot.ca/contact-us</loc>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://totheroot.ca/news</loc>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://totheroot.ca/products/baby-carriers</loc>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://totheroot.ca/products/handmade-apparel</loc>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://totheroot.ca/products/organic-cloth-diapers</loc>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://totheroot.ca/products/eco-accessories</loc>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://totheroot.ca/products/moon-cycles</loc>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://totheroot.ca/products/jewellery</loc>
+  <changefreq>yearly</changefreq>
+</url>
+<url>
+  <loc>https://totheroot.ca/news/2</loc>
+  <changefreq>yearly</changefreq>
 </url>
 </urlset>
