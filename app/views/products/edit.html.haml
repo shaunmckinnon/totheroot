@@ -1,0 +1,20 @@
+- title @details.title
+- meta_tag "description", @details.description
+
+#home-nav
+  = render "navs/default"
+
+#product{ itemscope: true, itemtype: 'http://schema.org/Product' }
+  %h1{ title: "Orillia handmade #{ @details.title }.", itemprop: 'name' }
+    = raw @details.title
+      
+  .bread-crumbs
+    %small
+      =link_to "/home", root_path
+      =link_to "/products", "/products"
+      =link_to "/#{@details.etsy_shop_section.title}", "/products/#{@details.etsy_shop_section.slug}"
+      =link_to "/#{ @details.title }", "/products/#{@details.etsy_shop_section.slug}/#{@details.id}"
+      = "/edit"
+
+  .container
+    = render "products/form"

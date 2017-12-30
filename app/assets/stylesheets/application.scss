@@ -7,6 +7,7 @@ $ttt-yellow: rgb(249, 240, 84);
 @import 'jquery-ui/autocomplete';
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bxslider";
 @import "summernote";
 @import "font-awesome";
 @import "social-share-button";
@@ -15,4 +16,8 @@ $ttt-yellow: rgb(249, 240, 84);
 
 body {
   font-family: 'Lato', sans-serif;
+}
+
+.bread-crumbs {
+  margin-left: 1em;
 }

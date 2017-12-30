@@ -1,1 +1,4 @@
 $ ->
+  $(".bxslider").bxSlider({
+    adaptiveHeight: true
+  })

@@ -18,6 +18,7 @@ gem "http"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'haml-rails', '~> 0.9'
 gem 'font-awesome-rails'
+gem 'bxslider-rails'
 
 # Use PaperClip for file handling
 gem "paperclip", "~> 4.3"

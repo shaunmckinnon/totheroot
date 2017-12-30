@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   get 'ProductRegistration', to: 'product_registrations#index'
 
   get '/products/:slug', to: 'products#shop_section'
+  get '/products/:slug/:id', to: 'products#details'
+  get '/products/:slug/:id/edit', to: 'products#edit'
+  post '/product/:id', to: 'products#update'
 
   root 'home#index'
-
-  resources :etsy_product
 
   match '*any' => 'application#options', :via => [:options]
 

@@ -1,42 +1,12 @@
 .listing.col-xs-6.col-sm-4.col-md-3.col-leg-2
-  .inside-container{ style: "background-image: url(#{locals[:product].images.first["url_570xN"]});" }
+  =link_to "#{request.env['PATH_INFO']}/#{locals[:product].id}", class: 'show-description', title: locals[:product].title do
+    .inside-container{ style: "background-image: url(#{locals[:product].images.first["url_570xN"]});" }
+      .title
+        %h3
+          = raw locals[:product].title
 
-    .title
-      %h3
-        = raw locals[:product].title
-
-    .price
-      %span
-        = number_to_currency( locals[:product].price )
-
-    .url
-      =link_to '#', class: 'show-description', title: locals[:product].title, data: { toggle: 'modal', target: "#details-#{locals[:product].id}" }, role: 'button', tabindex: '0' do
-        %i.fa.fa-search
+      .price
+        %span
+          = number_to_currency( locals[:product].price )
 
     .clearfix
-
-.modal.fade{ role: "dialog", tabindex: "-1" , id: "details-#{locals[:product].id}", itemprop: 'offers', itemscope: true, itemtype: 'http://schema.org/Offer' }
-  .modal-dialog{:role => "document"}
-    .modal-content
-
-      .modal-header
-        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-          %span{"aria-hidden" => "true"} ×
-        %h4.modal-title{ itemprop: 'name' }
-          = raw locals[:product].title
-          %span &nbsp;&mdash;&nbsp;
-          %span{ itemprop: 'price', content: locals[:product].price }
-            = number_to_currency( locals[:product].price )
-          %span{ itemprop: 'priceCurrency', content: 'CAD' }
-        = social_share_button_tag locals[:product].title
-
-      .modal-body
-        %p{ itemprop: 'description' }
-          = raw locals[:product].description
-        .images
-          - locals[:product].images.each do |image|
-            = image_tag image["url_570xN"], class: 'img-responsive img-thumbnail img-thumb', itemprop: 'image'
-
-      .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-        = link_to 'Buy on Etsy', locals[:product].url, class: 'btn btn-danger', target: "_blank", onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');", itemprop: 'availability'

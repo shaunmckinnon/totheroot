@@ -148,6 +148,16 @@ namespace :etsy do
       end
     end
 
+    # establish new listings list
+    cur_db_ids = EtsyProduct.pluck(:id)
+    puts "Current DB IDs count: #{cur_db_ids.count}"
+    puts cur_db_ids.inspect
+    puts listing_ids.inspect
+    new_ids = listing_ids - cur_db_ids
+    puts "New IDs count: #{new_ids.count}"
+    new_listings = listings.select{ |listing| new_ids.include?(listing["listing_id"]) }
+    puts "Total New Listings: #{new_listings.count}"
+
     # Add/Update Listings
     EtsyProduct.transaction do
       puts "Adding/updating new listings."
@@ -172,8 +182,23 @@ namespace :etsy do
           product.shipping_template_id = listing["shipping_template_id"]
           product.shipping_profile_id = listing["shipping_profile_id"]
           product.registration_code = EtsyProduct.generate_registration_code if product.registration_code.blank?
-          product.images = etsy_get_listing_images(listing["listing_id"])
           product.save!
+        end
+      end
+    end
+
+    # add images for the new listings only
+    if new_listings.count > 0
+      EtsyProduct.transaction do
+        puts "Adding images for the new listings."
+        puts "There are #{new_listings.count} total new listings."
+
+        new_listings.each do |listing|
+          unless listing["when_made"] == "made_to_order"
+            product = EtsyProduct.find_or_initialize_by(listing_id: listing["listing_id"])
+            product.images = etsy_get_listing_images(listing["listing_id"])
+            product.save!
+          end
         end
       end
     end

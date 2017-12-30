@@ -1,0 +1,44 @@
+= simple_form_for @details, url: "/product/#{@details.id}", method: :post do |f|
+  = f.error_notification
+
+  .form-inputs
+    %fieldset
+      %legend Editable Details
+      %p
+        %label.control-label Title:
+        = f.input_field :title, class: 'form-control'
+
+      %p
+        %label.control-label Description:
+        = f.input_field :description, as: :summernote, input_html: { rows: 10, cols: 120 }
+
+      %p
+        %label.control-label Price:
+        = f.input_field :price, class: 'form-control'
+
+    %br
+    %hl
+    %br
+    
+    %fieldset
+      %legend Helpful Info
+      %p
+        %label.control-label Etsy Listing ID:
+        = f.input_field :listing_id, class: 'form-control', disabled: true
+      %p
+        %label.control-label Etsy Shop Section:
+        = f.association :etsy_shop_section, label: false, selected: @details.etsy_shop_section.title, class: 'form-control', disabled: true
+      %p
+        %label.control-label Registration Code:
+        = f.input_field :registration_code, class: 'form-control', disabled: true
+
+      %p
+        %label.control-label Creation Date:
+        = f.input :created_at, class: 'form-control', disabled: true, as: :datetime, label: false
+
+      %p
+        %label.control-label Updated Last Date:
+        = f.input :updated_at, class: 'form-control', disabled: true, as: :datetime, label: false
+
+  .form-actions
+    = f.button :submit

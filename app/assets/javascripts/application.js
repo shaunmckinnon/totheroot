@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jquery-ui
+//= require bxslider
 //= require social-share-button
 //= require summernote
 //= require_tree .

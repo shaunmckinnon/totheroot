@@ -1,0 +1,39 @@
+- title @details.title
+- meta_tag "description", @details.description
+
+#home-nav
+  = render "navs/default"
+
+#product{ itemscope: true, itemtype: 'http://schema.org/Product' }
+  %h1{ title: "Orillia handmade #{ @details.title }.", itemprop: 'name' }
+    = raw @details.title
+      
+  .bread-crumbs
+    %small
+      =link_to "/home", root_path
+      =link_to "/products", "/products"
+      =link_to "/#{@details.etsy_shop_section.title}", "/products/#{@details.etsy_shop_section.slug}"
+      ="/#{ @details.title }"
+
+  .container
+    .col-xs-12.col-md-6
+      #details-image-container
+        #details-image-thumbs
+          %ul.bxslider
+            - @details.images.each do |image|
+              %li
+                = image_tag image["url_fullxfull"]
+
+    .col-xs-12.col-md-6
+      #details-description
+        %p.description
+          -if user_signed_in? && current_user.email == Rails.application.secrets.gmail_login
+            =link_to "#{request.env['PATH_INFO']}/edit", class: 'show-description', title: "Edit product." do
+              %i.fa.fa-pencil
+          = raw @details.description
+        %p.price
+          $
+          = raw @details.price
+          &nbsp; CAD
+          = link_to 'Buy in Our Etsy Shop', @details.url, class: 'btn btn-danger', target: "_blank", onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');", itemprop: 'availability'
+      
