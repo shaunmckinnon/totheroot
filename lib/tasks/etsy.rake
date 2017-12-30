@@ -149,7 +149,7 @@ namespace :etsy do
     end
 
     # establish new listings list
-    cur_db_ids = EtsyProduct.pluck(:id)
+    cur_db_ids = EtsyProduct.pluck(:listing_id)
     puts "Current DB IDs count: #{cur_db_ids.count}"
     puts cur_db_ids.inspect
     puts listing_ids.inspect
