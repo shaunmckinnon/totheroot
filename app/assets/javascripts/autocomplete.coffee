@@ -8,6 +8,7 @@ $ ->
         false
       select: (event, ui) ->
         $('#autocomplete-search').val ui.item.title
+        window.location.replace("/products/"+ui.item.shop_section_id+"/"+ui.item.id)
         false
     ).autocomplete('instance')._renderItem = (ul, item) ->
       $('<li>')

@@ -18,6 +18,21 @@ html, body {
   font-size: 100%;
 }
 
+.ui-autocomplete {
+  background-color: #fff;
+  border: 1px solid #66afe9;
+  padding: 0.5em;
+  
+  li {
+    padding: 0.25em;
+
+    &:hover {
+      background-color: $ttt-orange;
+      color: #fff;
+    }
+  }
+}
+
 #home-nav {
   position: fixed;
   width: 100%;
@@ -69,6 +84,13 @@ html, body {
       #mission {
         color: #fff;
         font-size: 2em;
+      }
+
+      #autocomplete-search {
+        max-width: 750px;
+        padding: 2em;
+        margin: 0 auto;
+        margin-top: 2.5em;
       }
 
       #call-to-action {

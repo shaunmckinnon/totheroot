@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get '/products/:slug', to: 'products#shop_section'
   get '/products/:slug/:id', to: 'products#details'
+  get '/products/:listing_id/:id', to: 'products#details'
   get '/products/:slug/:id/edit', to: 'products#edit'
   post '/product/:id', to: 'products#update'
 
@@ -27,5 +28,7 @@ Rails.application.routes.draw do
   resources :shop_sections
   resources :news_events
   get 'news/:id', to: 'news#event'
+
+  get 'autocomplete', to: 'products#autocomplete_search'
 
 end

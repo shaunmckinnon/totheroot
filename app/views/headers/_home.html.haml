@@ -16,6 +16,8 @@
       #mission{ itemprop: 'description' }
         Sustainable, handmade products for conscious people.
 
+      = render "helpers/autocompleteSearch"
+
       #call-to-action
         =link_to '#listings-home', class: 'btn btn-lg cta-products', onClick: "ga('send', 'event', 'Visiting-Etsy', 'click', 'CTA Etsy');" do
           View Our Products&nbsp;
