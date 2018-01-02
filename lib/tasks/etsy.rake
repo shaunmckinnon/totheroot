@@ -157,33 +157,40 @@ namespace :etsy do
     puts "New IDs count: #{new_ids.count}"
     new_listings = listings.select{ |listing| new_ids.include?(listing["listing_id"]) }
     puts "Total New Listings: #{new_listings.count}"
+    puts "New Listings IDs: "
+    new_listings.each do |listing|
+      puts "Listing Details: "
+      puts listing["listing_id"]
+      puts listing["title"]
+      puts listing["when_made"]
+      puts listing["description"]
+      puts "\n\n"
+    end
 
     # Add/Update Listings
     EtsyProduct.transaction do
       puts "Adding/updating new listings."
       listings.each do |listing|
-        unless listing["when_made"] == "made_to_order"
-          product = EtsyProduct.find_or_initialize_by(listing_id: listing["listing_id"])
-          product.category_id = listing["listing_id"]
-          product.shop_section_id = listing["shop_section_id"]
-          product.title = listing["title"]
-          product.description = listing["description"]
-          product.price = listing["price"]
-          product.currency_code = listing["currency_code"]
-          product.quantity = listing["quantity"]
-          product.tags = listing["tags"]
-          product.category_path = listing["category_path"]
-          product.taxonomy_path = listing["taxonomy_path"]
-          product.materials = listing["materials"]
-          product.featured_rank = listing["featured_rank"]
-          product.url = listing["url"]
-          product.views = listing["views"]
-          product.num_favorers = listing["num_favorers"]
-          product.shipping_template_id = listing["shipping_template_id"]
-          product.shipping_profile_id = listing["shipping_profile_id"]
-          product.registration_code = EtsyProduct.generate_registration_code if product.registration_code.blank?
-          product.save!
-        end
+        product = EtsyProduct.find_or_initialize_by(listing_id: listing["listing_id"])
+        product.category_id = listing["listing_id"]
+        product.shop_section_id = listing["shop_section_id"]
+        product.title = listing["title"]
+        product.description = listing["description"]
+        product.price = listing["price"]
+        product.currency_code = listing["currency_code"]
+        product.quantity = listing["quantity"]
+        product.tags = listing["tags"]
+        product.category_path = listing["category_path"]
+        product.taxonomy_path = listing["taxonomy_path"]
+        product.materials = listing["materials"]
+        product.featured_rank = listing["featured_rank"]
+        product.url = listing["url"]
+        product.views = listing["views"]
+        product.num_favorers = listing["num_favorers"]
+        product.shipping_template_id = listing["shipping_template_id"]
+        product.shipping_profile_id = listing["shipping_profile_id"]
+        product.registration_code = EtsyProduct.generate_registration_code if product.registration_code.blank?
+        product.save!
       end
     end
 
