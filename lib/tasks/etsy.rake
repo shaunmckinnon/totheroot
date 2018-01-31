@@ -12,6 +12,7 @@ namespace :etsy do
   @request_count = 0
 
   def etsy_request(request_string, additional_params = "")
+    sleep 1
     api_key = Rails.application.secrets.etsy_api_key
     etsy_request_url = "https://openapi.etsy.com/v2"
     etsy_api_key_string = "?api_key=#{api_key}"
@@ -19,7 +20,9 @@ namespace :etsy do
     puts "Getting Request: #{request_uri}"
     @request_count += 1
     puts "...current request count: #{@request_count}...\n\n"
-    JSON.parse HTTP.get(request_uri).to_s
+    results = JSON.parse HTTP.get(request_uri).to_s
+    sleep 1
+    return results
   end
 
   def etsy_get_shop
