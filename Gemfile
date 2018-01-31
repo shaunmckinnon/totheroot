@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # HTTP
 gem "http"
 
+gem 'rails_12factor', group: :production
+
 # Use Bootstrap-Sass, HAML, and FontAwesome
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'haml-rails', '~> 0.9'
