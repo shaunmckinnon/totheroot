@@ -8,12 +8,12 @@
 require 'http'
 
 namespace :etsy do
-  SHOP_REQ_URI = "shops/#{Rails.application.secrets.etsy_shop_id}"
+  SHOP_REQ_URI = "shops/#{ENV['etsy_shop_id']}"
   @request_count = 0
 
   def etsy_request(request_string, additional_params = "")
     sleep 1
-    api_key = Rails.application.secrets.etsy_api_key
+    api_key = ENV['etsy_api_key']
     etsy_request_url = "https://openapi.etsy.com/v2"
     etsy_api_key_string = "?api_key=#{api_key}"
     request_uri = "#{etsy_request_url}/#{request_string}#{etsy_api_key_string}#{additional_params}"
@@ -26,7 +26,7 @@ namespace :etsy do
   end
 
   def etsy_get_shop
-    shop_req_uri = "users/#{Rails.application.secrets.etsy_user_id}/shops"
+    shop_req_uri = "users/#{ENV['etsy_user_id']}/shops"
     return etsy_request(shop_req_uri)
   end
 

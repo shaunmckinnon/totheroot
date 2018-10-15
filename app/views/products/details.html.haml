@@ -27,7 +27,7 @@
     .col-xs-12.col-md-6
       #details-description
         %p.description
-          -if user_signed_in? && current_user.email == Rails.application.secrets.gmail_login
+          -if user_signed_in? && current_user.email == ENV['gmail_login']
             =link_to "#{request.env['PATH_INFO']}/edit", class: 'show-description', title: "Edit product." do
               %i.fa.fa-pencil
           = raw @details.description

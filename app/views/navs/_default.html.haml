@@ -20,7 +20,7 @@
             &nbsp;
             News
     
-    -if user_signed_in? && current_user.email == Rails.application.secrets.gmail_login
+    -if user_signed_in? && current_user.email == ENV['gmail_login']
       #adminnav
         %ul.nav.navbar-nav
           %li
